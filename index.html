@@ -82,10 +82,26 @@
       letter-spacing: 6px;
       margin-bottom: 48px;
     }
-    .hero .intro {
-      max-width: 580px;
+    .hero .manifesto {
+      max-width: 640px;
+    }
+    .hero .manifesto .ru-ren {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(28px, 3vw, 38px);
+      font-weight: 600;
+      letter-spacing: 10px;
+      color: #1A1A1A;
+      margin-bottom: 32px;
+    }
+    .hero .manifesto p:not(.ru-ren) {
       font-size: 16px;
       color: #333333;
+      line-height: 2.1;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .hero .manifesto p:last-child {
+      margin-bottom: 0;
     }
 
     /* ===== Section 共用 ===== */
@@ -325,11 +341,13 @@
     <div class="container">
       <h1>讓空間，<br>回到生活該有的樣子。</h1>
       <p class="tagline">I N T E R I O R　D E S I G N　S T U D I O</p>
-      <p class="intro">
-        IN.SPACE 是一間以「住的人」為核心的設計工作室。<br>
-        十年實戰，住宅與商空全方位設計、施工監工一條龍。<br>
-        我們不追潮流，只把空間做到耐看與好用。
-      </p>
+      <div class="manifesto">
+        <p class="ru-ren">入 ╱ 人</p>
+        <p>你我都是世上唯一的存在，<br>
+           自我獨特性及對生活的實踐，就是最棒的「風格」。</p>
+        <p>我即空間。<br>
+           家，就是我們對生活最美好的形象。</p>
+      </div>
     </div>
   </header>
 
