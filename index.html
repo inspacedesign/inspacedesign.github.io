@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IN.SPACE｜室內設計工作室</title>
+  <meta name="description" content="IN.SPACE 室內設計工作室 — 十年實戰，住宅／商空專業設計與監工服務。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset & 基礎 ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-weight: 300;
+      color: #1A1A1A;
+      background: #FFFFFF;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(245, 241, 234, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #E5E5E5;
+      z-index: 100;
+      padding: 18px 0;
+    }
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-family: "Noto Serif TC", serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #666666;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: #1A1A1A; }
+
+    /* ===== Hero ===== */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+    }
+    .hero h1 {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 600;
+      letter-spacing: 4px;
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+    .hero .tagline {
+      font-size: clamp(16px, 1.4vw, 20px);
+      color: #666666;
+      letter-spacing: 6px;
+      margin-bottom: 48px;
+    }
+    .hero .intro {
+      max-width: 580px;
+      font-size: 16px;
+      color: #333333;
+    }
+
+    /* ===== Section 共用 ===== */
+    section { padding: 100px 0; }
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #999999;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 600;
+      margin-bottom: 56px;
+      letter-spacing: 2px;
+    }
+
+    /* ===== About ===== */
+    .about {
+      background: #F7F7F7;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #333333;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ===== Cases ===== */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .case-card {
+      background: #FFFFFF;
+      overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(43, 40, 35, 0.08);
+    }
+    .case-img {
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #E5E5E5 0%, #C4C4C4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999999;
+      font-family: "Noto Serif TC", serif;
+      font-size: 14px;
+      letter-spacing: 4px;
+    }
+    .case-info {
+      padding: 24px 28px;
+    }
+    .case-info h3 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .case-info .case-meta {
+      font-size: 13px;
+      color: #999999;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .case-info p {
+      font-size: 14px;
+      color: #666666;
+    }
+
+    /* ===== Process ===== */
+    .process {
+      background: #F7F7F7;
+    }
+    .process-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+    }
+    .process-step {
+      position: relative;
+    }
+    .process-step .num {
+      font-family: "Noto Serif TC", serif;
+      font-size: 48px;
+      color: #1A1A1A;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .process-step h4 {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+    .process-step p {
+      font-size: 13px;
+      color: #666666;
+    }
+
+    /* ===== Pricing ===== */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .pricing-card {
+      background: #FFFFFF;
+      padding: 40px 32px;
+      border: 1px solid #E5E5E5;
+      transition: border-color 0.3s;
+    }
+    .pricing-card:hover { border-color: #1A1A1A; }
+    .pricing-card .tier-name {
+      font-family: "Noto Serif TC", serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .pricing-card .tier-suit {
+      font-size: 13px;
+      color: #999999;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+    .pricing-card .price {
+      font-family: "Noto Serif TC", serif;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .pricing-card .price-unit {
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 28px;
+    }
+    .pricing-card ul {
+      list-style: none;
+    }
+    .pricing-card li {
+      font-size: 14px;
+      padding: 8px 0;
+      border-bottom: 1px dashed #F0F0F0;
+      color: #333333;
+    }
+    .pricing-card li:last-child { border-bottom: none; }
+    .pricing-note {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #666666;
+      letter-spacing: 1px;
+    }
+
+    /* ===== Contact ===== */
+    .contact {
+      background: #1A1A1A;
+      color: #F0F0F0;
+    }
+    .contact .section-title { color: #FFFFFF; }
+    .contact .section-label { color: #999999; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+    .contact-item {
+      padding: 24px 0;
+    }
+    .contact-item .label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: #999999;
+      margin-bottom: 8px;
+    }
+    .contact-item .value {
+      font-size: 16px;
+      color: #F0F0F0;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #000000;
+      color: #999999;
+      padding: 32px 0;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    /* ===== 響應式 ===== */
+    @media (max-width: 768px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 12px; }
+      .container { padding: 0 20px; }
+      section { padding: 64px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav>
+    <div class="container">
+      <div class="brand">IN.SPACE</div>
+      <ul class="nav-links">
+        <li><a href="#about">關於</a></li>
+        <li><a href="#cases">作品</a></li>
+        <li><a href="#process">流程</a></li>
+        <li><a href="#pricing">收費</a></li>
+        <li><a href="#contact">聯絡</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <header class="hero">
+    <div class="container">
+      <h1>讓空間，<br>回到生活該有的樣子。</h1>
+      <p class="tagline">I N T E R I O R　D E S I G N　S T U D I O</p>
+      <p class="intro">
+        IN.SPACE 是一間以「住的人」為核心的設計工作室。<br>
+        十年實戰，住宅與商空全方位設計、施工監工一條龍。<br>
+        我們不追潮流，只把空間做到耐看與好用。
+      </p>
+    </div>
+  </header>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="about">
+    <div class="container">
+      <p class="section-label">ABOUT</p>
+      <h2 class="section-title">關於 IN.SPACE</h2>
+      <div class="about-grid">
+        <div>
+          <p style="font-family: 'Noto Serif TC', serif; font-size: 18px; color: #1A1A1A;">
+            設計，是讓生活回到該有的樣子。
+          </p>
+        </div>
+        <div>
+          <p>
+            我們相信好的空間不靠堆砌風格，而是回應使用者真實的生活。
+            十年來累積上百件住宅與商業空間案例，從平面規劃、3D 渲染、
+            到施工監工，全程由設計師親自把關。
+          </p>
+          <p>
+            主理人具備十年室內設計與工程管理經驗，擅長將業主模糊的需求，
+            轉化為可執行的設計方案，並嚴格控管施工品質與工期。
+          </p>
+          <p>
+            服務範圍：住宅設計、商業空間、辦公空間、店面規劃、舊屋翻新。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Cases ===== -->
+  <section id="cases">
+    <div class="container">
+      <p class="section-label">WORKS</p>
+      <h2 class="section-title">作品案例</h2>
+      <div class="case-grid">
+
+        <div class="case-card">
+          <div class="case-img">案例圖 01</div>
+          <div class="case-info">
+            <h3>案例名稱（待補）</h3>
+            <p class="case-meta">住宅 ｜ 32 坪 ｜ 2024</p>
+            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-img">案例圖 02</div>
+          <div class="case-info">
+            <h3>案例名稱（待補）</h3>
+            <p class="case-meta">商空 ｜ 18 坪 ｜ 2024</p>
+            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-img">案例圖 03</div>
+          <div class="case-info">
+            <h3>案例名稱（待補）</h3>
+            <p class="case-meta">住宅 ｜ 45 坪 ｜ 2023</p>
+            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-img">案例圖 04</div>
+          <div class="case-info">
+            <h3>案例名稱（待補）</h3>
+            <p class="case-meta">舊屋翻新 ｜ 28 坪 ｜ 2023</p>
+            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-img">案例圖 05</div>
+          <div class="case-info">
+            <h3>案例名稱（待補）</h3>
+            <p class="case-meta">辦公 ｜ 60 坪 ｜ 2023</p>
+            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-img">案例圖 06</div>
+          <div class="case-info">
+            <h3>案例名稱（待補）</h3>
+            <p class="case-meta">店面 ｜ 22 坪 ｜ 2022</p>
+            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Process ===== -->
+  <section id="process" class="process">
+    <div class="container">
+      <p class="section-label">PROCESS</p>
+      <h2 class="section-title">接案流程</h2>
+      <div class="process-list">
+
+        <div class="process-step">
+          <div class="num">01</div>
+          <h4>免費諮詢</h4>
+          <p>了解需求、預算、時程，初步評估可行性。</p>
+        </div>
+
+        <div class="process-step">
+          <div class="num">02</div>
+          <h4>現場丈量</h4>
+          <p>實地測量空間，記錄屋況與限制條件。</p>
+        </div>
+
+        <div class="process-step">
+          <div class="num">03</div>
+          <h4>平面提案</h4>
+          <p>提供平面配置方案與粗估報價。</p>
+        </div>
+
+        <div class="process-step">
+          <div class="num">04</div>
+          <h4>深化設計</h4>
+          <p>3D 渲染、施工圖、材料挑選確認。</p>
+        </div>
+
+        <div class="process-step">
+          <div class="num">05</div>
+          <h4>施工監工</h4>
+          <p>工班協調、品質把關、進度追蹤。</p>
+        </div>
+
+        <div class="process-step">
+          <div class="num">06</div>
+          <h4>驗收交屋</h4>
+          <p>逐項驗收、瑕疵修正、保固服務。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pricing ===== -->
+  <section id="pricing">
+    <div class="container">
+      <p class="section-label">PRICING</p>
+      <h2 class="section-title">收費標準</h2>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <p class="tier-name">基礎設計</p>
+          <p class="tier-suit">預算有限、格局簡單</p>
+          <p class="price">NT$ 4,000 起</p>
+          <p class="price-unit">／坪</p>
+          <ul>
+            <li>平面配置規劃</li>
+            <li>3D 示意圖</li>
+            <li>建議材料清單</li>
+            <li>不含施工監工</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <p class="tier-name">完整設計</p>
+          <p class="tier-suit">一般住宅整體規劃</p>
+          <p class="price">NT$ 6,500 起</p>
+          <p class="price-unit">／坪</p>
+          <ul>
+            <li>含「基礎設計」全部</li>
+            <li>完整施工圖</li>
+            <li>材料／燈具／軟裝挑選</li>
+            <li>不含施工監工</li>
+          </ul>
+        </div>
+
+        <div class="pricing-card">
+          <p class="tier-name">設計＋監工</p>
+          <p class="tier-suit">省心、品質要求高</p>
+          <p class="price">另計</p>
+          <p class="price-unit">監工費約工程款 8-10%</p>
+          <ul>
+            <li>含「完整設計」全部</li>
+            <li>工班協調發包</li>
+            <li>現場品質監督</li>
+            <li>進度追蹤與驗收</li>
+          </ul>
+        </div>
+
+      </div>
+      <p class="pricing-note">
+        以上為起跳價，實際費用依空間條件、設計深度與服務範圍調整。<br>
+        歡迎預約免費諮詢，提供初步評估。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <p class="section-label">CONTACT</p>
+      <h2 class="section-title">聯絡我們</h2>
+      <div class="contact-grid">
+
+        <div class="contact-item">
+          <p class="label">EMAIL</p>
+          <p class="value">your@email.com</p>
+        </div>
+
+        <div class="contact-item">
+          <p class="label">LINE</p>
+          <p class="value">@inspacedesign</p>
+        </div>
+
+        <div class="contact-item">
+          <p class="label">FACEBOOK</p>
+          <p class="value">facebook.com/inspacedesign</p>
+        </div>
+
+        <div class="contact-item">
+          <p class="label">服務地區</p>
+          <p class="value">桃園 ｜ 雙北 ｜ 全台可洽</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container">
+      © 2026 IN.SPACE 室內設計工作室．All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
