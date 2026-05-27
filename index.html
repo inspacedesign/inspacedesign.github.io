@@ -127,16 +127,51 @@
     .about {
       background: #F7F7F7;
     }
+    .about-statement {
+      max-width: 760px;
+      margin-bottom: 72px;
+    }
+    .about-statement p {
+      font-size: 17px;
+      color: #1A1A1A;
+      line-height: 2.05;
+      margin-bottom: 26px;
+    }
+    .about-statement .about-quote {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(20px, 2vw, 24px);
+      color: #1A1A1A;
+      letter-spacing: 1px;
+      line-height: 1.6;
+      margin: 40px 0;
+    }
+    .about-statement .about-quote span {
+      display: block;
+      font-size: 16px;
+      color: #666666;
+      letter-spacing: 2px;
+      margin-top: 6px;
+    }
+    .about-secondary {
+      padding-top: 48px;
+      border-top: 1px solid #E5E5E5;
+    }
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
       gap: 80px;
       align-items: start;
     }
-    .about p {
-      font-size: 15px;
-      margin-bottom: 20px;
-      color: #333333;
+    .about-secondary .lead {
+      font-family: "Noto Serif TC", serif;
+      font-size: 18px;
+      color: #1A1A1A;
+    }
+    .about-secondary p {
+      font-size: 14px;
+      margin-bottom: 18px;
+      color: #666666;
+      line-height: 1.9;
     }
     @media (max-width: 768px) {
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -358,25 +393,23 @@
     <div class="container">
       <p class="section-label">ABOUT</p>
       <h2 class="section-title">關於 IN.SPACE</h2>
-      <div class="about-grid">
+
+      <div class="about-statement">
+        <p>我們深信：最好的風格，就是你對生活的實踐。設計的初衷，不只是為了漂亮的房子，也是為了房子外的生活。</p>
+        <p>作為專業顧問，我不幫你定義標籤。而是協助你梳理慣性、解決問題，將冰冷的建築載體，轉化為具備生命溫度的生活場域。</p>
+        <p class="about-quote">Life is a voyage, and home is where we return.<span>人生是一場航行，家是唯一的港灣。</span></p>
+        <p>無論事業與人生到達什麼高度，回歸自我的空間永遠值得更好的改變。</p>
+        <p class="about-quote">No matter how successful you are, change is always good.</p>
+      </div>
+
+      <div class="about-grid about-secondary">
         <div>
-          <p style="font-family: 'Noto Serif TC', serif; font-size: 18px; color: #1A1A1A;">
-            設計，是讓生活回到該有的樣子。
-          </p>
+          <p class="lead">設計，是讓生活回到該有的樣子。</p>
         </div>
         <div>
-          <p>
-            我們相信好的空間不靠堆砌風格，而是回應使用者真實的生活。
-            十年來累積上百件住宅與商業空間案例，從平面規劃、3D 渲染、
-            到施工監工，全程由設計師親自把關。
-          </p>
-          <p>
-            主理人具備十年室內設計與工程管理經驗，擅長將業主模糊的需求，
-            轉化為可執行的設計方案，並嚴格控管施工品質與工期。
-          </p>
-          <p>
-            服務範圍：住宅設計、商業空間、辦公空間、店面規劃、舊屋翻新。
-          </p>
+          <p>我們相信好的空間不靠堆砌風格，而是回應使用者真實的生活。十年來累積上百件住宅與商業空間案例，從平面規劃、3D 渲染、到施工監工，全程由設計師親自把關。</p>
+          <p>主理人具備十年室內設計與工程管理經驗，擅長將業主模糊的需求，轉化為可執行的設計方案，並嚴格控管施工品質與工期。</p>
+          <p>服務範圍：住宅設計、商業空間、辦公空間、店面規劃、舊屋翻新。</p>
         </div>
       </div>
     </div>
@@ -393,8 +426,8 @@
           <div class="case-img" style="background:url('images/case-01/00.jpg') center/cover no-repeat;"></div>
           <div class="case-info">
             <h3>家。共同構築的日常</h3>
-            <p class="case-meta">住宅 ｜ 32 坪 ｜ 2024</p>
-            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+            <p class="case-meta">新成屋 ｜ 12 坪 ｜ 2020</p>
+            <p>與屋主一步一腳印共同構築，連牆上的世界地圖都是一起拼起來的。</p>
           </div>
         </a>
 
@@ -402,8 +435,8 @@
           <div class="case-img" style="background:url('images/case-02/00.jpg') center/cover no-repeat;"></div>
           <div class="case-info">
             <h3>家。由你敘述的故事</h3>
-            <p class="case-meta">商空 ｜ 18 坪 ｜ 2024</p>
-            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+            <p class="case-meta">中古屋 ｜ 26 坪 ｜ 2020</p>
+            <p>以「顧問」角色協助個性鮮明的屋主，把多樣需求融入設計的另類合作旅程。</p>
           </div>
         </a>
 
@@ -411,8 +444,8 @@
           <div class="case-img" style="background:url('images/case-03/00.jpg') center/cover no-repeat;"></div>
           <div class="case-info">
             <h3>家。回歸自我的場域</h3>
-            <p class="case-meta">住宅 ｜ 45 坪 ｜ 2023</p>
-            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+            <p class="case-meta">中古屋 ｜ 26 坪 ｜ 2019</p>
+            <p>老公寓翻新，重點放在基礎工程，以輕裝修＋軟裝讓屋主自由發揮生活風格。</p>
           </div>
         </a>
 
@@ -420,8 +453,8 @@
           <div class="case-img" style="background:url('images/case-04/00.jpg') center/cover no-repeat;"></div>
           <div class="case-info">
             <h3>家。不被定義的形狀</h3>
-            <p class="case-meta">舊屋翻新 ｜ 28 坪 ｜ 2023</p>
-            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+            <p class="case-meta">新成屋 ｜ 16 坪 ｜ 2022</p>
+            <p>捨去沙發、以大餐桌為家的中心，大量留白把空間留給屋主與未來。</p>
           </div>
         </a>
 
@@ -447,8 +480,8 @@
           <div class="case-img" style="background:url('images/case-07/00.jpg') center/cover no-repeat;"></div>
           <div class="case-info">
             <h3>家。隨你定義的容器</h3>
-            <p class="case-meta">住宅 ｜ 38 坪 ｜ 2022</p>
-            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+            <p class="case-meta">新成屋 ｜ 32 坪 ｜ 2023</p>
+            <p>新成屋 32 坪，附大露臺的現代風生活容器。</p>
           </div>
         </a>
 
@@ -456,8 +489,8 @@
           <div class="case-img" style="background:url('images/case-08/00.jpg') center/cover no-repeat;"></div>
           <div class="case-info">
             <h3>家。生活慣性的延伸</h3>
-            <p class="case-meta">商空 ｜ 25 坪 ｜ 2022</p>
-            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+            <p class="case-meta">新成屋 ｜ 16 坪 ｜ 2023</p>
+            <p>新成屋 16 坪，順應生活慣性延伸的現代住宅。</p>
           </div>
         </a>
 
