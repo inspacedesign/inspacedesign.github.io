@@ -15,3 +15,14 @@
 
 .git-broken/
 .git-stale-*/
+
+# 部署金鑰（絕不上傳）
+.deploy-token
+
+# favicon 來源與暫存圖（不上傳）
+去背入.png
+_favicon_compare.png
+_mark_compare.png
+
+# 3D 渲染 PNG 原檔（已轉成 JPG，不上傳）
+images/case-*/*.png
