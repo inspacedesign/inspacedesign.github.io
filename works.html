@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品案例｜入空間設計 IN.SPACE</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+  <link rel="icon" type="image/png" href="/favicon-32.png?v=2">
+  <meta name="description" content="IN.SPACE 入空間設計作品集 — 住宅、商業空間、3D 渲染概念設計案例。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-weight: 300;
+      color: #1A1A1A;
+      background: #FFFFFF;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #000000;
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1A1A1A;
+      z-index: 100;
+      padding: 18px 0;
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .brand {
+      font-family: "Noto Serif TC", serif;
+      font-size: 20px; font-weight: 600; letter-spacing: 2px;
+      color: #F0F0F0; text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: #999999; text-decoration: none;
+      font-size: 14px; letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: #FFFFFF; }
+
+    /* Page header */
+    .page-header {
+      padding: 160px 0 60px;
+      border-bottom: 1px solid #F0F0F0;
+    }
+    .page-header .section-label {
+      font-size: 12px; letter-spacing: 4px;
+      color: #999999; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .page-header h1 {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(32px, 4.5vw, 48px);
+      font-weight: 600; letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .page-header p {
+      font-size: 15px; color: #666666; max-width: 640px;
+    }
+
+    /* Cases */
+    .works-section { padding: 80px 0 120px; }
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .case-card {
+      background: #FFFFFF; overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+      color: inherit; text-decoration: none; display: block;
+      border: 1px solid #F0F0F0;
+    }
+    .case-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+    .case-img {
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, #E5E5E5 0%, #C4C4C4 100%);
+    }
+    .case-info { padding: 24px 28px; }
+    .case-info h3 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 18px; font-weight: 600; margin-bottom: 8px;
+    }
+    .case-info .case-meta {
+      font-size: 13px; color: #999999;
+      letter-spacing: 1px; margin-bottom: 12px;
+    }
+    .case-info p { font-size: 14px; color: #666666; }
+
+    /* Footer */
+    footer {
+      background: #000000; color: #999999;
+      padding: 32px 0; text-align: center;
+      font-size: 13px; letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 12px; }
+      .container { padding: 0 20px; }
+      .page-header { padding: 120px 0 40px; }
+      .works-section { padding: 48px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="brand">IN.SPACE</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">關於</a></li>
+        <li><a href="works.html" class="active">作品</a></li>
+        <li><a href="process.html">流程</a></li>
+        <li><a href="pricing.html">收費</a></li>
+        <li><a href="index.html#contact">聯絡</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Page Header ===== -->
+  <header class="page-header">
+    <div class="container">
+      <p class="section-label">WORKS</p>
+      <h1>作品案例</h1>
+      <p>十年累積上百件住宅、商業空間實作，與 3D 渲染概念提案。<br>每一件都是與業主一步一腳印共同構築的成果。</p>
+    </div>
+  </header>
+
+  <!-- ===== Cases ===== -->
+  <section class="works-section">
+    <div class="container">
+      <div class="case-grid">
+
+        <a href="cases/case-01.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-01/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家。共同構築的日常</h3>
+            <p class="case-meta">新成屋 ｜ 12 坪 ｜ 2020</p>
+            <p>與屋主一步一腳印共同構築，連牆上的世界地圖都是一起拼起來的。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-02.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-02/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家。由你敘述的故事</h3>
+            <p class="case-meta">中古屋 ｜ 26 坪 ｜ 2020</p>
+            <p>以「顧問」角色協助個性鮮明的屋主，把多樣需求融入設計的另類合作旅程。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-03.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-03/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家。回歸自我的場域</h3>
+            <p class="case-meta">中古屋 ｜ 26 坪 ｜ 2019</p>
+            <p>老公寓翻新，重點放在基礎工程，以輕裝修＋軟裝讓屋主自由發揮生活風格。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-04.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-04/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家。不被定義的形狀</h3>
+            <p class="case-meta">新成屋 ｜ 16 坪 ｜ 2022</p>
+            <p>捨去沙發、以大餐桌為家的中心，大量留白把空間留給屋主與未來。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-05.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-05/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家吶子。台式居酒屋 Ka-la̍h-á</h3>
+            <p class="case-meta">商業空間 ｜ 15 坪 ｜ 臺北市</p>
+            <p>回到萬華故鄉的台式復古居酒屋——以「從家出發，回到家鄉」為核心的設計提案。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-06.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-06/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>武森健身格鬥。本館</h3>
+            <p class="case-meta">店面 ｜ 22 坪 ｜ 2022</p>
+            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-07.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-07/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家。隨你定義的容器</h3>
+            <p class="case-meta">新成屋 ｜ 32 坪 ｜ 2023</p>
+            <p>新成屋 32 坪，附大露臺的現代風生活容器。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-08.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-08/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家。生活慣性的延伸</h3>
+            <p class="case-meta">新成屋 ｜ 16 坪 ｜ 2023</p>
+            <p>新成屋 16 坪，順應生活慣性延伸的現代住宅。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-09.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-09/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>武森健身格鬥。本館</h3>
+            <p class="case-meta">住宅 ｜ 50 坪 ｜ 2021</p>
+            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-10.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-10/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>武森健身格鬥。惡館</h3>
+            <p class="case-meta">舊屋翻新 ｜ 30 坪 ｜ 2021</p>
+            <p>簡短案例描述放這裡，介紹空間特色、業主需求與設計重點。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-11.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-11/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家。理想生活的實驗</h3>
+            <p class="case-meta">3D 渲染圖 ｜ 15 坪 ｜ 2025</p>
+            <p>3D 渲染概念設計｜15 坪 ／ 2 房 2 廳。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-12.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-12/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家。純粹生活的體現</h3>
+            <p class="case-meta">3D 渲染圖 ｜ 26 坪 ｜ 2025</p>
+            <p>3D 渲染概念設計｜26 坪 ／ 3 房 2 廳。</p>
+          </div>
+        </a>
+
+        <a href="cases/case-13.html" class="case-card">
+          <div class="case-img" style="background:url('images/case-13/00.jpg') center/cover no-repeat;"></div>
+          <div class="case-info">
+            <h3>家。需求對話的成果</h3>
+            <p class="case-meta">3D 渲染圖 ｜ 21 坪 ｜ 2025</p>
+            <p>3D 渲染概念設計｜21 坪 ／ 1 房 2 廳。</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container">
+      © 2020 INSPACE DESIGN LTD. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
