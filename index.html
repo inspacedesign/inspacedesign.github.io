@@ -265,6 +265,54 @@
     }
     .dot:hover { background: #999999; }
 
+    /* ===== 作品分類雙入口（住宅／商空） ===== */
+    .cat-entry {
+      padding: 16px 0 96px;
+      background: #FFFFFF;
+    }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .cat-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .cat-img-wrap { overflow: hidden; }
+    .cat-img {
+      aspect-ratio: 16 / 10;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s ease;
+    }
+    .cat-card:hover .cat-img { transform: scale(1.04); }
+    .cat-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 2px 0;
+    }
+    .cat-label .cat-zh {
+      font-family: "Noto Serif TC", serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: #1A1A1A;
+    }
+    .cat-label .cat-arrow {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #999999;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .cat-card:hover .cat-arrow { color: #1A1A1A; transform: translateX(4px); }
+    @media (max-width: 680px) {
+      .cat-grid { grid-template-columns: 1fr; gap: 18px; }
+      .cat-entry { padding: 8px 0 64px; }
+    }
+
     /* ===== Quick Links ===== */
     .quick-links {
       padding: 100px 0;
@@ -553,6 +601,32 @@
         <button class="dot" aria-label="第 4 張"></button>
         <button class="dot" aria-label="第 5 張"></button>
         <button class="dot" aria-label="第 6 張"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 作品分類雙入口（住宅／商空） ===== -->
+  <section class="cat-entry" aria-label="作品分類入口">
+    <div class="container">
+      <div class="cat-grid">
+        <a href="works.html#residential" class="cat-card">
+          <div class="cat-img-wrap">
+            <div class="cat-img" style="background-image:url('images/case-03/00.jpg');"></div>
+          </div>
+          <div class="cat-label">
+            <span class="cat-zh" data-zh="住宅" data-en="Residential">住宅</span>
+            <span class="cat-arrow">VIEW →</span>
+          </div>
+        </a>
+        <a href="works.html#commercial" class="cat-card">
+          <div class="cat-img-wrap">
+            <div class="cat-img" style="background-image:url('images/case-05/00.jpg');"></div>
+          </div>
+          <div class="cat-label">
+            <span class="cat-zh" data-zh="商空" data-en="Commercial">商空</span>
+            <span class="cat-arrow">VIEW →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
