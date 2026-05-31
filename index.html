@@ -125,32 +125,33 @@
       display: block;
     }
 
-    /* 左右箭頭：永遠顯示（觀看者主動掌控） */
+    /* 左右箭頭：盡量不擋照片（透明底 + 移到照片外） */
     .viewer-prev, .viewer-next {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       z-index: 5;
-      width: 48px; height: 48px;
-      background: #FFFFFF;
-      border: 1px solid #E5E5E5;
+      width: 44px; height: 44px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       color: #1A1A1A;
-      font-size: 24px;
+      font-size: 28px;
       font-family: "Noto Serif TC", serif;
+      font-weight: 300;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: background 0.25s, border-color 0.25s, color 0.25s;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     }
     .viewer-prev:hover, .viewer-next:hover {
-      background: #1A1A1A;
-      border-color: #1A1A1A;
+      background: rgba(0, 0, 0, 0.55);
+      border-color: rgba(0, 0, 0, 0.55);
       color: #FFFFFF;
     }
-    .viewer-prev { left: 8px; }
-    .viewer-next { right: 8px; }
+    /* 桌機箭頭跑到照片外（在 viewer-wrap padding 區內） */
+    .viewer-prev { left: -56px; }
+    .viewer-next { right: -56px; }
 
     /* 底部 indicator */
     .viewer-dots {
@@ -174,21 +175,18 @@
     }
     .dot:hover { background: #999999; }
 
-    /* 計數器（第 N / 總數） */
-    .viewer-counter {
-      text-align: center;
-      margin-top: 12px;
-      font-size: 12px;
-      letter-spacing: 3px;
-      color: #999999;
-      font-family: "Noto Serif TC", serif;
-    }
-
     @media (max-width: 768px) {
       .viewer-wrap { padding: 0 16px; }
-      .viewer-prev, .viewer-next { width: 38px; height: 38px; font-size: 18px; }
-      .viewer-prev { left: -4px; }
-      .viewer-next { right: -4px; }
+      .viewer-prev, .viewer-next {
+        width: 36px; height: 36px; font-size: 22px;
+        /* mobile 空間有限，箭頭回到照片內，加白色光暈確保任何底色都看得到 */
+        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.25);
+        color: #FFFFFF;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      }
+      .viewer-prev { left: 8px; }
+      .viewer-next { right: 8px; }
     }
 
     /* ===== Quick Links（關於 / 作品 / 流程 / 收費 ===== */
@@ -235,49 +233,59 @@
       color: #1A1A1A;
     }
 
-    /* ===== Contact — 淡灰底 ===== */
+    /* ===== Contact — 淡灰底（精簡版） ===== */
     .contact {
       background: #F0F0F0;
       color: #1A1A1A;
-      padding: 100px 0;
+      padding: 56px 0 48px;
+      text-align: center;
+    }
+    .contact-logo {
+      width: 56px; height: 56px;
+      color: #1A1A1A;
+      display: block;
+      margin: 0 auto 18px;
     }
     .contact .section-label {
-      font-size: 12px; letter-spacing: 4px;
-      color: #999999; margin-bottom: 12px;
+      font-size: 11px; letter-spacing: 4px;
+      color: #999999; margin-bottom: 8px;
       text-transform: uppercase;
     }
     .contact .section-title {
       font-family: "Noto Serif TC", serif;
-      font-size: clamp(28px, 3vw, 40px);
+      font-size: clamp(22px, 2.4vw, 28px);
       font-weight: 600;
       letter-spacing: 2px;
-      margin-bottom: 56px;
+      margin-bottom: 36px;
       color: #1A1A1A;
     }
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      text-align: left;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    .contact-item { padding: 24px 0; }
+    .contact-item { padding: 8px 0; }
     .contact-item .label {
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 3px;
       color: #999999;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .contact-item .value {
-      font-size: 16px;
+      font-size: 15px;
       color: #1A1A1A;
     }
     .contact-item .qr {
       display: block;
-      width: 120px;
-      height: 120px;
+      width: 96px;
+      height: 96px;
       border-radius: 4px;
-      margin-top: 4px;
+      margin-top: 2px;
       background: #FFFFFF;
-      padding: 4px;
+      padding: 3px;
     }
 
     /* ===== Footer — 淡灰底 ===== */
@@ -355,7 +363,6 @@
         <button class="dot" aria-label="第 5 張"></button>
         <button class="dot" aria-label="第 6 張"></button>
       </div>
-      <p class="viewer-counter"><span class="cur">01</span> ／ <span class="total">06</span></p>
     </div>
   </section>
 
@@ -394,6 +401,12 @@
   <!-- ===== Contact ===== -->
   <section id="contact" class="contact">
     <div class="container">
+      <svg class="contact-logo" viewBox="-22 -27 220 220" aria-label="入空間設計 LOGO">
+        <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 12 3 A 152 165 0 0 1 164 164"/>
+          <path d="M 33.5 47 L 33.5 160"/>
+        </g>
+      </svg>
       <p class="section-label">CONTACT</p>
       <h2 class="section-title">聯絡我們</h2>
       <div class="contact-grid">
@@ -437,7 +450,6 @@
     var prev   = document.querySelector('.hero-viewer .viewer-prev');
     var next   = document.querySelector('.hero-viewer .viewer-next');
     var stage  = document.querySelector('.hero-viewer .viewer-stage');
-    var cur    = document.querySelector('.hero-viewer .viewer-counter .cur');
     if (!slides.length) return;
 
     var current = 0;
@@ -445,7 +457,6 @@
       idx = ((idx % slides.length) + slides.length) % slides.length;
       slides.forEach(function(s, i) { s.classList.toggle('active', i === idx); });
       dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
-      if (cur) cur.textContent = String(idx + 1).padStart(2, '0');
       current = idx;
     }
     function nextSlide() { show(current + 1); }
