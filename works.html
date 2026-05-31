@@ -99,6 +99,7 @@
       justify-content: center;
       gap: 8px;
       padding: 40px 0 0;
+      margin-bottom: 64px;
       flex-wrap: wrap;
     }
     .filter-tab {
@@ -498,20 +499,30 @@
   (function() {
     var tabs = document.querySelectorAll('.filter-tab');
     var cards = document.querySelectorAll('.case-card');
+
+    function applyFilter(f) {
+      if (f !== 'all' && f !== 'residential' && f !== 'commercial') f = 'all';
+      tabs.forEach(function(t) {
+        t.classList.toggle('active', t.getAttribute('data-filter') === f);
+      });
+      cards.forEach(function(c) {
+        var match = (f === 'all' || c.getAttribute('data-category') === f);
+        c.classList.toggle('hide', !match);
+      });
+    }
+
     tabs.forEach(function(tab) {
       tab.addEventListener('click', function() {
-        tabs.forEach(function(t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        var f = tab.getAttribute('data-filter');
-        cards.forEach(function(c) {
-          if (f === 'all' || c.getAttribute('data-category') === f) {
-            c.classList.remove('hide');
-          } else {
-            c.classList.add('hide');
-          }
-        });
+        applyFilter(tab.getAttribute('data-filter'));
       });
     });
+
+    // 從首頁「作品」下拉選單帶 #residential / #commercial 進來時，自動套用
+    function fromHash() {
+      applyFilter((location.hash || '').replace('#', '') || 'all');
+    }
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
   })();
   </script>
   <script>
