@@ -94,15 +94,15 @@
     }
     .viewer-wrap {
       position: relative;
-      max-width: 1280px;
+      max-width: 1600px;
       margin: 0 auto;
-      padding: 0 64px;     /* 兩側留空間給箭頭 */
+      padding: 0 16px;     /* 兩側只留一點白邊 */
       user-select: none;
     }
     .viewer-stage {
       position: relative;
       width: 100%;
-      aspect-ratio: 3 / 2;
+      aspect-ratio: 16 / 9; /* 寬扁電影感 */
       overflow: hidden;
       background: #FAFAFA; /* 圖未載入時的純白偏灰底 */
     }
@@ -125,17 +125,17 @@
       display: block;
     }
 
-    /* 左右箭頭：盡量不擋照片（透明底 + 移到照片外） */
+    /* 左右箭頭：半透明白底，留在照片內邊緣，可見但不搶戲 */
     .viewer-prev, .viewer-next {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       z-index: 5;
       width: 44px; height: 44px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       color: #1A1A1A;
-      font-size: 28px;
+      font-size: 26px;
       font-family: "Noto Serif TC", serif;
       font-weight: 300;
       cursor: pointer;
@@ -143,15 +143,16 @@
       align-items: center;
       justify-content: center;
       transition: background 0.25s, border-color 0.25s, color 0.25s;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
     }
     .viewer-prev:hover, .viewer-next:hover {
-      background: rgba(0, 0, 0, 0.55);
-      border-color: rgba(0, 0, 0, 0.55);
+      background: rgba(26, 26, 26, 0.85);
+      border-color: rgba(26, 26, 26, 0.85);
       color: #FFFFFF;
     }
-    /* 桌機箭頭跑到照片外（在 viewer-wrap padding 區內） */
-    .viewer-prev { left: -56px; }
-    .viewer-next { right: -56px; }
+    .viewer-prev { left: 16px; }
+    .viewer-next { right: 16px; }
 
     /* 底部 indicator */
     .viewer-dots {
@@ -176,14 +177,9 @@
     .dot:hover { background: #999999; }
 
     @media (max-width: 768px) {
-      .viewer-wrap { padding: 0 16px; }
+      .viewer-wrap { padding: 0 8px; }
       .viewer-prev, .viewer-next {
         width: 36px; height: 36px; font-size: 22px;
-        /* mobile 空間有限，箭頭回到照片內，加白色光暈確保任何底色都看得到 */
-        background: rgba(255, 255, 255, 0.18);
-        border-color: rgba(255, 255, 255, 0.25);
-        color: #FFFFFF;
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
       }
       .viewer-prev { left: 8px; }
       .viewer-next { right: 8px; }
