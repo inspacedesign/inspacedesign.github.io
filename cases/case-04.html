@@ -265,6 +265,114 @@
       .nav-links a { font-size: 12px; }
       .container, .container-wide { padding: 0 20px; }
     }
+  
+    /* ===== Site-wide Contact ===== */
+    .site-contact {
+      background: #F0F0F0;
+      color: #1A1A1A;
+      padding: 48px 0;
+    }
+    .site-contact .contact-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .site-contact .contact-brand {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .site-contact .contact-logo {
+      width: 84px; height: 84px;
+      color: #1A1A1A;
+      display: block;
+      flex-shrink: 0;
+    }
+    .site-contact .contact-name .zh {
+      font-family: "Noto Serif TC", serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: #1A1A1A;
+      line-height: 1.3;
+    }
+    .site-contact .contact-name .en {
+      font-size: 13px;
+      letter-spacing: 5px;
+      color: #777777;
+      margin-top: 6px;
+    }
+    .site-contact .contact-list {
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: 36px;
+      row-gap: 14px;
+      align-items: center;
+    }
+    .site-contact .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #333333;
+    }
+    .site-contact .contact-item .label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #999999;
+      text-transform: uppercase;
+    }
+    .site-contact .contact-mail {
+      color: #333333;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .site-contact .contact-mail:hover {
+      color: #1A1A1A;
+      border-color: #1A1A1A;
+    }
+    .site-contact .line-btn,
+    .site-contact .form-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .site-contact .line-btn {
+      background: #06C755;
+      box-shadow: 0 2px 6px rgba(6, 199, 85, 0.25);
+    }
+    .site-contact .line-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(6, 199, 85, 0.4);
+    }
+    .site-contact .form-btn {
+      background: #1A1A1A;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    }
+    .site-contact .form-btn:hover {
+      transform: scale(1.08);
+      background: #000000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .site-contact .line-btn svg,
+    .site-contact .form-btn svg {
+      width: 20px; height: 20px;
+      fill: #FFFFFF;
+    }
+    @media (max-width: 768px) {
+      .site-contact .contact-bar { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .site-contact .contact-list { grid-template-columns: 1fr; row-gap: 12px; }
+      .site-contact .contact-logo { width: 64px; height: 64px; }
+      .site-contact .contact-name .zh { font-size: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -279,6 +387,7 @@
         <li><a href="../works.html" data-zh="作品" data-en="Works">作品</a></li>
         <li><a href="../process.html" data-zh="流程" data-en="Process">流程</a></li>
         <li><a href="../pricing.html" data-zh="收費" data-en="Pricing">收費</a></li>
+        <li><a href="https://www.surveycake.com/s/o9G0V" target="_blank" rel="noopener" data-zh="諮詢表單" data-en="Inquiry">諮詢表單</a></li>
         <li><a href="../index.html#contact" data-zh="聯絡" data-en="Contact">聯絡</a></li>
       </ul>
         <div class="lang-toggle">
@@ -370,6 +479,53 @@
   </section>
 
   <!-- ===== Footer ===== -->
+  
+  <!-- ===== Site-wide Contact ===== -->
+  <section class="site-contact">
+    <div class="container">
+      <div class="contact-bar">
+        <div class="contact-brand">
+          <svg class="contact-logo" viewBox="-22 -27 220 220" aria-label="入空間設計 LOGO">
+            <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 12 3 A 152 165 0 0 1 164 164"/>
+              <path d="M 33.5 47 L 33.5 160"/>
+            </g>
+          </svg>
+          <div class="contact-name">
+            <div class="zh">入空間設計</div>
+            <div class="en">IN.SPACE DESIGN</div>
+          </div>
+        </div>
+        <div class="contact-list">
+          <div class="contact-item">
+            <span class="label">EMAIL</span>
+            <a href="mailto:inspacedesign.r2@gmail.com" class="contact-mail">inspacedesign.r2@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="label">LINE</span>
+            <a href="../line.html" class="line-btn" aria-label="加入 LINE 好友">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 3C8.27 3 2 7.96 2 14.08c0 5.48 4.96 10.08 11.7 11.04.45.1 1.07.3 1.23.69.14.35.09.9.04 1.27 0 0-.16.99-.2 1.2-.06.35-.28 1.38 1.21.75 1.49-.63 8.04-4.73 10.97-8.1 2.02-2.22 2.99-4.46 2.99-6.85C30 7.96 23.73 3 16 3zM10.06 17.4H7.7c-.34 0-.62-.28-.62-.62v-4.74c0-.34.28-.62.62-.62.34 0 .62.28.62.62v4.12h1.74c.34 0 .62.28.62.62s-.28.62-.62.62zm2.4-.62c0 .34-.28.62-.62.62s-.62-.28-.62-.62v-4.74c0-.34.28-.62.62-.62s.62.28.62.62v4.74zm5.69 0c0 .27-.17.51-.43.59-.06.02-.13.03-.2.03-.2 0-.38-.09-.5-.25l-2.42-3.3v2.93c0 .34-.28.62-.62.62s-.62-.28-.62-.62v-4.74c0-.27.17-.5.43-.59.06-.02.13-.03.2-.03.2 0 .38.09.5.25l2.42 3.3v-2.93c0-.34.28-.62.62-.62s.62.28.62.62v4.74zm3.8-2.99c.34 0 .62.28.62.62s-.28.62-.62.62h-1.74v1.13h1.74c.34 0 .62.28.62.62s-.28.62-.62.62H19.6c-.34 0-.62-.28-.62-.62v-4.74c0-.34.28-.62.62-.62h2.36c.34 0 .62.28.62.62s-.28.62-.62.62H20.2v1.13h1.75z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="label" data-zh="諮詢表單" data-en="Inquiry">諮詢表單</span>
+            <a href="https://www.surveycake.com/s/o9G0V" target="_blank" rel="noopener" class="form-btn" aria-label="填寫諮詢表單">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H14a1 1 0 0 1-1-1V3.5zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16zm0-6h5v1.5H8V10z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="label" data-zh="服務地區" data-en="Service Area">服務地區</span>
+            <span data-zh="雙北 ｜ 基隆 ｜ 桃園" data-en="Taipei ｜ Keelung ｜ Taoyuan">雙北 ｜ 基隆 ｜ 桃園</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       © 2020 INSPACE DESIGN LTD. All rights reserved.

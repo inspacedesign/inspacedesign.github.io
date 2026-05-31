@@ -145,6 +145,12 @@
       opacity: 1;
       pointer-events: auto;
     }
+    .viewer-slide a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+    }
     .viewer-slide img {
       width: 100%;
       height: 100%;
@@ -304,6 +310,17 @@
       color: #999999;
       text-transform: uppercase;
     }
+    /* Email mailto */
+    .contact-mail {
+      color: #333333;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .contact-mail:hover {
+      color: #1A1A1A;
+      border-color: #1A1A1A;
+    }
     /* LINE 圓形按鈕 */
     .line-btn {
       display: flex;
@@ -322,6 +339,28 @@
       box-shadow: 0 4px 12px rgba(6, 199, 85, 0.4);
     }
     .line-btn svg {
+      width: 20px; height: 20px;
+      fill: #FFFFFF;
+    }
+    /* 諮詢表單按鈕 */
+    .form-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: #1A1A1A;
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    }
+    .form-btn:hover {
+      transform: scale(1.08);
+      background: #000000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .form-btn svg {
       width: 20px; height: 20px;
       fill: #FFFFFF;
     }
@@ -373,6 +412,7 @@
           <li><a href="works.html" data-zh="作品" data-en="Works">作品</a></li>
           <li><a href="process.html" data-zh="流程" data-en="Process">流程</a></li>
           <li><a href="pricing.html" data-zh="收費" data-en="Pricing">收費</a></li>
+          <li><a href="https://www.surveycake.com/s/o9G0V" target="_blank" rel="noopener" data-zh="諮詢表單" data-en="Inquiry">諮詢表單</a></li>
           <li><a href="#contact" data-zh="聯絡" data-en="Contact">聯絡</a></li>
         </ul>
         <div class="lang-toggle">
@@ -406,12 +446,12 @@
     <div class="viewer-wrap">
       <div class="viewer-stage">
 
-        <div class="viewer-slide active"><img src="images/home/01.jpg" alt="作品照片 01"></div>
-        <div class="viewer-slide"><img src="images/home/02.jpg" alt="作品照片 02"></div>
-        <div class="viewer-slide"><img src="images/home/03.jpg" alt="作品照片 03"></div>
-        <div class="viewer-slide"><img src="images/home/04.jpg" alt="作品照片 04"></div>
-        <div class="viewer-slide"><img src="images/home/05.jpg" alt="作品照片 05"></div>
-        <div class="viewer-slide"><img src="images/home/06.jpg" alt="作品照片 06"></div>
+        <div class="viewer-slide active"><a href="works.html"><img src="images/home/01.jpg" alt="作品照片 01"></a></div>
+        <div class="viewer-slide"><a href="works.html"><img src="images/home/02.jpg" alt="作品照片 02"></a></div>
+        <div class="viewer-slide"><a href="cases/case-01.html"><img src="images/home/03.jpg" alt="作品照片 03 — 家。共同構築的日常"></a></div>
+        <div class="viewer-slide"><a href="works.html"><img src="images/home/04.jpg" alt="作品照片 04"></a></div>
+        <div class="viewer-slide"><a href="works.html"><img src="images/home/05.jpg" alt="作品照片 05"></a></div>
+        <div class="viewer-slide"><a href="works.html"><img src="images/home/06.jpg" alt="作品照片 06"></a></div>
 
         <button class="viewer-prev" aria-label="上一張">‹</button>
         <button class="viewer-next" aria-label="下一張">›</button>
@@ -491,13 +531,21 @@
         <div class="contact-list">
           <div class="contact-item">
             <span class="label">EMAIL</span>
-            <span>inspacedesign.r2@gmail.com</span>
+            <a href="mailto:inspacedesign.r2@gmail.com" class="contact-mail">inspacedesign.r2@gmail.com</a>
           </div>
           <div class="contact-item">
             <span class="label">LINE</span>
             <a href="line.html" class="line-btn" aria-label="加入 LINE 好友">
               <svg viewBox="0 0 32 32" aria-hidden="true">
                 <path d="M16 3C8.27 3 2 7.96 2 14.08c0 5.48 4.96 10.08 11.7 11.04.45.1 1.07.3 1.23.69.14.35.09.9.04 1.27 0 0-.16.99-.2 1.2-.06.35-.28 1.38 1.21.75 1.49-.63 8.04-4.73 10.97-8.1 2.02-2.22 2.99-4.46 2.99-6.85C30 7.96 23.73 3 16 3zM10.06 17.4H7.7c-.34 0-.62-.28-.62-.62v-4.74c0-.34.28-.62.62-.62.34 0 .62.28.62.62v4.12h1.74c.34 0 .62.28.62.62s-.28.62-.62.62zm2.4-.62c0 .34-.28.62-.62.62s-.62-.28-.62-.62v-4.74c0-.34.28-.62.62-.62s.62.28.62.62v4.74zm5.69 0c0 .27-.17.51-.43.59-.06.02-.13.03-.2.03-.2 0-.38-.09-.5-.25l-2.42-3.3v2.93c0 .34-.28.62-.62.62s-.62-.28-.62-.62v-4.74c0-.27.17-.5.43-.59.06-.02.13-.03.2-.03.2 0 .38.09.5.25l2.42 3.3v-2.93c0-.34.28-.62.62-.62s.62.28.62.62v4.74zm3.8-2.99c.34 0 .62.28.62.62s-.28.62-.62.62h-1.74v1.13h1.74c.34 0 .62.28.62.62s-.28.62-.62.62H19.6c-.34 0-.62-.28-.62-.62v-4.74c0-.34.28-.62.62-.62h2.36c.34 0 .62.28.62.62s-.28.62-.62.62H20.2v1.13h1.75z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="label" data-zh="諮詢表單" data-en="Inquiry">諮詢表單</span>
+            <a href="https://www.surveycake.com/s/o9G0V" target="_blank" rel="noopener" class="form-btn" aria-label="填寫諮詢表單">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H14a1 1 0 0 1-1-1V3.5zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16zm0-6h5v1.5H8V10z"/>
               </svg>
             </a>
           </div>
