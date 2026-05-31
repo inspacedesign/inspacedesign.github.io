@@ -227,12 +227,14 @@
     }
     .quick-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      align-items: stretch;
     }
     .quick-card {
-      display: block;
-      padding: 44px 32px;
+      display: flex;
+      flex-direction: column;
+      padding: 40px 24px;
       border: 1px solid #E5E5E5;
       color: inherit;
       text-decoration: none;
@@ -246,18 +248,19 @@
     }
     .quick-card h3 {
       font-family: "Noto Serif TC", serif;
-      font-size: 22px; font-weight: 600;
-      letter-spacing: 3px; margin-bottom: 16px;
+      font-size: 20px; font-weight: 600;
+      letter-spacing: 2px; margin-bottom: 16px;
       color: #1A1A1A;
     }
     .quick-card .ql-desc {
-      font-size: 14px; color: #666666;
-      line-height: 1.9; margin-bottom: 24px;
+      font-size: 13.5px; color: #666666;
+      line-height: 1.85; margin-bottom: 24px;
     }
     .quick-card .ql-arrow {
       font-size: 12px; letter-spacing: 2px;
       color: #999999;
       text-transform: uppercase;
+      margin-top: auto;
     }
     /* 諮詢表單卡：用淡灰藍底突顯（不搶戲，但跟其他 4 張有區別） */
     .quick-card--accent {
@@ -270,6 +273,19 @@
     }
     .quick-card--accent .ql-arrow {
       color: #5A6B7A;
+    }
+    /* 五卡同列：中型螢幕縮緊內距維持單列，手機才改單欄 */
+    @media (max-width: 1024px) {
+      .quick-grid { gap: 12px; }
+      .quick-card { padding: 32px 16px; }
+      .quick-card h3 { font-size: 18px; letter-spacing: 1px; margin-bottom: 12px; }
+      .quick-card .ql-desc { font-size: 13px; line-height: 1.8; }
+    }
+    @media (max-width: 680px) {
+      .quick-grid { grid-template-columns: 1fr; gap: 14px; }
+      .quick-card { padding: 36px 28px; }
+      .quick-card h3 { font-size: 20px; letter-spacing: 2px; }
+      .quick-card .ql-desc { font-size: 14px; }
     }
 
     /* ===== Contact — 水平條（LOGO 放大 + 中英品牌名） ===== */
