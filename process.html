@@ -25,7 +25,7 @@
 
     nav {
       position: fixed; top: 0; left: 0; right: 0;
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.55);
       backdrop-filter: blur(14px) saturate(180%);
       -webkit-backdrop-filter: blur(14px) saturate(180%);
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -91,33 +91,92 @@
 
     .process-section {
       padding: 80px 0 120px;
-      background: #F7F7F7;
+      background: #FFFFFF;
     }
-    .process-list {
+
+    /* ===== Timeline 流程圖 ===== */
+    .timeline {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .tl-step {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 48px 32px;
+      grid-template-columns: 80px 1fr;
+      gap: 36px;
+      padding: 28px 0;
+      position: relative;
     }
-    .process-step { position: relative; }
-    .process-step .num {
+    /* 連接下一個 step 的垂直線 */
+    .tl-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 39px;
+      top: 100px;      /* 圓點底（28 padding + 72 圓點）*/
+      bottom: -28px;   /* 接到下一個 step 的 padding-top */
+      width: 1px;
+      background: #DDDDDD;
+    }
+    .tl-marker {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .tl-num {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1.5px solid #1A1A1A;
       font-family: "Noto Serif TC", serif;
-      font-size: 56px; color: #1A1A1A;
-      font-weight: 600; line-height: 1;
-      margin-bottom: 20px;
+      font-size: 22px; font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      color: #1A1A1A;
+      letter-spacing: 1px;
+      transition: background 0.3s, color 0.3s;
     }
-    .process-step h4 {
-      font-size: 18px; font-weight: 500;
-      margin-bottom: 10px; letter-spacing: 2px;
+    .tl-step:hover .tl-num {
+      background: #1A1A1A;
+      color: #FFFFFF;
     }
-    .process-step p {
-      font-size: 14px; color: #666666;
-      line-height: 1.9;
+    .tl-content { padding-top: 10px; }
+    .tl-content h3 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+      color: #1A1A1A;
+    }
+    .tl-sub {
+      font-size: 13px;
+      color: #999999;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .tl-desc {
+      font-size: 15px;
+      color: #555555;
+      line-height: 1.95;
+    }
+    .tl-badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 2px 10px;
+      background: #1A1A1A;
+      color: #FFFFFF;
+      margin-left: 8px;
+      vertical-align: middle;
+      transform: translateY(-2px);
     }
 
     .process-note {
       max-width: 760px; margin: 80px auto 0;
       padding: 32px; border: 1px solid #E5E5E5;
-      background: #FFFFFF;
+      background: #F7F7F7;
     }
     .process-note h3 {
       font-family: "Noto Serif TC", serif;
@@ -127,6 +186,13 @@
     .process-note p {
       font-size: 14px; color: #666666;
       line-height: 1.9;
+    }
+
+    @media (max-width: 768px) {
+      .tl-step { grid-template-columns: 60px 1fr; gap: 20px; }
+      .tl-num { width: 56px; height: 56px; font-size: 18px; }
+      .tl-step:not(:last-child)::after { left: 29px; top: 84px; }
+      .tl-content h3 { font-size: 22px; letter-spacing: 3px; }
     }
 
     footer {
@@ -177,42 +243,60 @@
 
   <section class="process-section">
     <div class="container">
-      <div class="process-list">
+      <div class="timeline">
 
-        <div class="process-step">
-          <div class="num">01</div>
-          <h4>免費諮詢</h4>
-          <p>了解需求、預算、時程，初步評估可行性。</p>
+        <div class="tl-step">
+          <div class="tl-marker"><div class="tl-num">01</div></div>
+          <div class="tl-content">
+            <h3>免費諮詢</h3>
+            <p class="tl-sub">需求溝通・案例分享・預算討論</p>
+            <p class="tl-desc">了解業主需求、預算範圍與時程規劃，初步評估案件可行性，提供完整裝修相關資訊。</p>
+          </div>
         </div>
 
-        <div class="process-step">
-          <div class="num">02</div>
-          <h4>現場丈量</h4>
-          <p>實地測量空間，記錄屋況與限制條件。</p>
+        <div class="tl-step">
+          <div class="tl-marker"><div class="tl-num">02</div></div>
+          <div class="tl-content">
+            <h3>現場丈量</h3>
+            <p class="tl-sub">屋況勘察・尺寸測量・問題盤點</p>
+            <p class="tl-desc">實地走訪現場，測量空間尺寸、紀錄屋況與限制條件，為後續設計打下基礎。</p>
+          </div>
         </div>
 
-        <div class="process-step">
-          <div class="num">03</div>
-          <h4>平面提案</h4>
-          <p>提供平面配置方案與粗估報價。</p>
+        <div class="tl-step">
+          <div class="tl-marker"><div class="tl-num">03</div></div>
+          <div class="tl-content">
+            <h3>平面提案<span class="tl-badge">$</span></h3>
+            <p class="tl-sub">空間配置・初步規劃・粗估報價</p>
+            <p class="tl-desc">依現況條件與業主需求，提供 2–3 版平面配置方案與工程粗估，協助釐清設計方向。</p>
+          </div>
         </div>
 
-        <div class="process-step">
-          <div class="num">04</div>
-          <h4>深化設計</h4>
-          <p>3D 渲染、施工圖、材料挑選確認。</p>
+        <div class="tl-step">
+          <div class="tl-marker"><div class="tl-num">04</div></div>
+          <div class="tl-content">
+            <h3>深化設計<span class="tl-badge">$</span></h3>
+            <p class="tl-sub">合約簽訂・3D 渲染・施工圖・材料確認</p>
+            <p class="tl-desc">簽訂設計合約後，完成 3D 渲染、完整施工圖、材料／燈具／軟裝挑選，明確收斂執行細節。</p>
+          </div>
         </div>
 
-        <div class="process-step">
-          <div class="num">05</div>
-          <h4>施工監工</h4>
-          <p>工班協調、品質把關、進度追蹤。</p>
+        <div class="tl-step">
+          <div class="tl-marker"><div class="tl-num">05</div></div>
+          <div class="tl-content">
+            <h3>施工監工<span class="tl-badge">$</span></h3>
+            <p class="tl-sub">工班協調・品質把關・進度追蹤</p>
+            <p class="tl-desc">由設計師親自監督現場，工班協調、品質檢核、進度回報，嚴格執行設計圖與工程預算。</p>
+          </div>
         </div>
 
-        <div class="process-step">
-          <div class="num">06</div>
-          <h4>驗收交屋</h4>
-          <p>逐項驗收、瑕疵修正、保固服務。</p>
+        <div class="tl-step">
+          <div class="tl-marker"><div class="tl-num">06</div></div>
+          <div class="tl-content">
+            <h3>驗收交屋</h3>
+            <p class="tl-sub">逐項驗收・瑕疵修正・保固服務</p>
+            <p class="tl-desc">依設計圖逐項驗收，瑕疵協助修正後正式交屋，並提供後續保固與修繕服務。</p>
+          </div>
         </div>
 
       </div>

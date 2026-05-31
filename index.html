@@ -28,7 +28,7 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.55);
       backdrop-filter: blur(14px) saturate(180%);
       -webkit-backdrop-filter: blur(14px) saturate(180%);
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -249,45 +249,47 @@
     .contact {
       background: #F0F0F0;
       color: #1A1A1A;
-      padding: 44px 0;
+      padding: 48px 0;
     }
     .contact-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
+      gap: 40px;
       flex-wrap: wrap;
     }
     .contact-brand {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
     .contact-logo {
-      width: 52px; height: 52px;
+      width: 84px; height: 84px;
       color: #1A1A1A;
       display: block;
       flex-shrink: 0;
     }
     .contact-name .zh {
       font-family: "Noto Serif TC", serif;
-      font-size: 17px;
+      font-size: 24px;
       font-weight: 600;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       color: #1A1A1A;
       line-height: 1.3;
     }
     .contact-name .en {
-      font-size: 10px;
-      letter-spacing: 4px;
-      color: #888888;
-      margin-top: 4px;
+      font-size: 13px;
+      letter-spacing: 5px;
+      color: #777777;
+      margin-top: 6px;
     }
+    /* 右側資訊區：兩行 grid */
     .contact-list {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: 36px;
+      row-gap: 14px;
       align-items: center;
-      gap: 28px;
-      flex-wrap: wrap;
     }
     .contact-item {
       display: flex;
@@ -324,8 +326,10 @@
       fill: #FFFFFF;
     }
     @media (max-width: 768px) {
-      .contact-bar { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .contact-list { gap: 18px; }
+      .contact-bar { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .contact-list { grid-template-columns: 1fr; row-gap: 12px; }
+      .contact-logo { width: 64px; height: 64px; }
+      .contact-name .zh { font-size: 20px; }
     }
 
     /* ===== Footer ===== */
