@@ -90,31 +90,31 @@
     .lang-btn.active { color: #1A1A1A; font-weight: 500; }
     .lang-toggle .sep { color: #CCCCCC; font-size: 12px; }
 
-    /* ===== Intro：詩意 manifesto（無品牌名、無 tagline） ===== */
+    /* ===== Intro：詩意 manifesto（輕盈、不撐版） ===== */
     .intro {
-      padding: 160px 0 80px;
+      padding: clamp(100px, 14vw, 140px) 0 clamp(56px, 8vw, 80px);
       text-align: center;
     }
     .intro-text {
-      max-width: 720px;
+      max-width: 560px;
       margin: 0 auto;
     }
     .intro-q {
       font-family: "Noto Serif TC", serif;
-      font-size: clamp(20px, 2.4vw, 28px);
+      font-size: clamp(16px, 1.6vw, 19px);
       font-weight: 400;
-      color: #1A1A1A;
-      line-height: 2.0;
-      letter-spacing: 3px;
+      color: #333333;
+      line-height: 2.2;
+      letter-spacing: 0.5px;
     }
     .intro-a {
       font-family: "Noto Serif TC", serif;
-      font-size: clamp(22px, 2.6vw, 30px);
-      font-weight: 600;
+      font-size: clamp(17px, 1.8vw, 22px);
+      font-weight: 500;
       color: #1A1A1A;
       line-height: 1.9;
-      letter-spacing: 4px;
-      margin-top: clamp(80px, 12vw, 140px);  /* 與上段拉出明顯留白 */
+      letter-spacing: 1px;
+      margin-top: clamp(56px, 9vw, 96px);
     }
 
     /* ===== Hero Viewer：手動切換照片（滿幅） ===== */
