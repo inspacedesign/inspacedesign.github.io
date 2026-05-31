@@ -89,14 +89,16 @@
 
     /* ===== Hero Viewer：手動切換的純照片瀏覽 ===== */
     .hero-viewer {
-      padding: 40px 0 100px;
+      padding: 40px 0 80px;
       background: #FFFFFF;
     }
+    .hero-viewer .container-wide,
+    .hero-viewer .container { padding: 0; max-width: 100%; }
     .viewer-wrap {
       position: relative;
-      max-width: 1600px;
+      width: 100%;
       margin: 0 auto;
-      padding: 0 16px;     /* 兩側只留一點白邊 */
+      padding: 0;          /* 滿幅，不留白邊 */
       user-select: none;
     }
     .viewer-stage {
@@ -125,17 +127,17 @@
       display: block;
     }
 
-    /* 左右箭頭：半透明白底，留在照片內邊緣，可見但不搶戲 */
+    /* 左右箭頭：極淡半透明（12%），可辨識但不搶戲 */
     .viewer-prev, .viewer-next {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       z-index: 5;
-      width: 44px; height: 44px;
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      color: #1A1A1A;
-      font-size: 26px;
+      width: 48px; height: 48px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FFFFFF;
+      font-size: 28px;
       font-family: "Noto Serif TC", serif;
       font-weight: 300;
       cursor: pointer;
@@ -143,16 +145,18 @@
       align-items: center;
       justify-content: center;
       transition: background 0.25s, border-color 0.25s, color 0.25s;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4); /* 白字配淡暗影，任何底色都看得到 */
     }
     .viewer-prev:hover, .viewer-next:hover {
-      background: rgba(26, 26, 26, 0.85);
-      border-color: rgba(26, 26, 26, 0.85);
+      background: rgba(26, 26, 26, 0.7);
+      border-color: rgba(26, 26, 26, 0.7);
       color: #FFFFFF;
+      text-shadow: none;
     }
-    .viewer-prev { left: 16px; }
-    .viewer-next { right: 16px; }
+    .viewer-prev { left: 24px; }
+    .viewer-next { right: 24px; }
 
     /* 底部 indicator */
     .viewer-dots {
@@ -177,12 +181,11 @@
     .dot:hover { background: #999999; }
 
     @media (max-width: 768px) {
-      .viewer-wrap { padding: 0 8px; }
       .viewer-prev, .viewer-next {
-        width: 36px; height: 36px; font-size: 22px;
+        width: 38px; height: 38px; font-size: 22px;
       }
-      .viewer-prev { left: 8px; }
-      .viewer-next { right: 8px; }
+      .viewer-prev { left: 12px; }
+      .viewer-next { right: 12px; }
     }
 
     /* ===== Quick Links（關於 / 作品 / 流程 / 收費 ===== */
@@ -210,15 +213,11 @@
       transform: translateY(-4px);
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
     }
-    .quick-card .ql-label {
-      font-size: 12px; letter-spacing: 4px;
-      color: #999999; margin-bottom: 10px;
-      text-transform: uppercase;
-    }
     .quick-card h3 {
       font-family: "Noto Serif TC", serif;
-      font-size: 22px; font-weight: 600;
-      letter-spacing: 2px; margin-bottom: 16px;
+      font-size: 26px; font-weight: 600;
+      letter-spacing: 3px; margin-bottom: 18px;
+      color: #1A1A1A;
     }
     .quick-card .ql-desc {
       font-size: 14px; color: #666666;
@@ -229,59 +228,67 @@
       color: #1A1A1A;
     }
 
-    /* ===== Contact — 淡灰底（精簡版） ===== */
+    /* ===== Contact — 極簡水平條 ===== */
     .contact {
       background: #F0F0F0;
       color: #1A1A1A;
-      padding: 56px 0 48px;
-      text-align: center;
+      padding: 36px 0;
+    }
+    .contact-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .contact-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
     .contact-logo {
-      width: 56px; height: 56px;
+      width: 36px; height: 36px;
       color: #1A1A1A;
       display: block;
-      margin: 0 auto 18px;
+      flex-shrink: 0;
     }
-    .contact .section-label {
-      font-size: 11px; letter-spacing: 4px;
-      color: #999999; margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    .contact .section-title {
+    .contact-brand .name {
       font-family: "Noto Serif TC", serif;
-      font-size: clamp(22px, 2.4vw, 28px);
+      font-size: 16px;
       font-weight: 600;
-      letter-spacing: 2px;
-      margin-bottom: 36px;
-      color: #1A1A1A;
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      text-align: left;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .contact-item { padding: 8px 0; }
-    .contact-item .label {
-      font-size: 11px;
       letter-spacing: 3px;
-      color: #999999;
-      margin-bottom: 6px;
-    }
-    .contact-item .value {
-      font-size: 15px;
       color: #1A1A1A;
+    }
+    .contact-list {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #333333;
+    }
+    .contact-item .label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #999999;
+      text-transform: uppercase;
     }
     .contact-item .qr {
       display: block;
-      width: 96px;
-      height: 96px;
+      width: 72px;
+      height: 72px;
       border-radius: 4px;
-      margin-top: 2px;
       background: #FFFFFF;
       padding: 3px;
+    }
+    @media (max-width: 768px) {
+      .contact-bar { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .contact-list { gap: 18px; }
     }
 
     /* ===== Footer — 淡灰底 ===== */
@@ -367,66 +374,56 @@
     <div class="container">
       <div class="quick-grid">
         <a href="about.html" class="quick-card">
-          <p class="ql-label">ABOUT</p>
-          <h3>關於</h3>
+          <h3>About</h3>
           <p class="ql-desc">十年實戰、顧問式合作，將模糊需求轉化為可執行的設計方案。</p>
-          <span class="ql-arrow">看關於 →</span>
+          <span class="ql-arrow">關於我們 →</span>
         </a>
         <a href="works.html" class="quick-card">
-          <p class="ql-label">WORKS</p>
-          <h3>作品案例</h3>
+          <h3>Project</h3>
           <p class="ql-desc">十年累積上百件實作，住宅、商業空間、3D 渲染概念提案。</p>
-          <span class="ql-arrow">看作品 →</span>
+          <span class="ql-arrow">作品案例 →</span>
         </a>
         <a href="process.html" class="quick-card">
-          <p class="ql-label">PROCESS</p>
-          <h3>接案流程</h3>
+          <h3>Process</h3>
           <p class="ql-desc">六個階段全程由設計師親自把關，從諮詢到驗收交屋都清楚。</p>
-          <span class="ql-arrow">看流程 →</span>
+          <span class="ql-arrow">接案流程 →</span>
         </a>
         <a href="pricing.html" class="quick-card">
-          <p class="ql-label">PRICING</p>
-          <h3>收費標準</h3>
+          <h3>Pricing</h3>
           <p class="ql-desc">三種服務深度，從只要設計到設計＋監工一條龍，自由選擇。</p>
-          <span class="ql-arrow">看收費 →</span>
+          <span class="ql-arrow">收費標準 →</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===== Contact ===== -->
+  <!-- ===== Contact — 水平條 ===== -->
   <section id="contact" class="contact">
     <div class="container">
-      <svg class="contact-logo" viewBox="-22 -27 220 220" aria-label="入空間設計 LOGO">
-        <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M 12 3 A 152 165 0 0 1 164 164"/>
-          <path d="M 33.5 47 L 33.5 160"/>
-        </g>
-      </svg>
-      <p class="section-label">CONTACT</p>
-      <h2 class="section-title">聯絡我們</h2>
-      <div class="contact-grid">
-
-        <div class="contact-item">
-          <p class="label">EMAIL</p>
-          <p class="value">inspacedesign.r2@gmail.com</p>
+      <div class="contact-bar">
+        <div class="contact-brand">
+          <svg class="contact-logo" viewBox="-22 -27 220 220" aria-label="入空間設計 LOGO">
+            <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 12 3 A 152 165 0 0 1 164 164"/>
+              <path d="M 33.5 47 L 33.5 160"/>
+            </g>
+          </svg>
+          <span class="name">入空間設計</span>
         </div>
-
-        <div class="contact-item">
-          <p class="label">LINE</p>
-          <img src="line-qr.jpg" alt="LINE QR Code" class="qr">
+        <div class="contact-list">
+          <div class="contact-item">
+            <span class="label">EMAIL</span>
+            <span>inspacedesign.r2@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="label">LINE</span>
+            <img src="line-qr.jpg" alt="LINE QR Code" class="qr">
+          </div>
+          <div class="contact-item">
+            <span class="label">服務地區</span>
+            <span>雙北 ｜ 基隆 ｜ 桃園</span>
+          </div>
         </div>
-
-        <div class="contact-item">
-          <p class="label">SOCIAL MEDIA</p>
-          <p class="value">&nbsp;</p>
-        </div>
-
-        <div class="contact-item">
-          <p class="label">服務地區</p>
-          <p class="value">雙北 ｜ 基隆 ｜ 桃園</p>
-        </div>
-
       </div>
     </div>
   </section>
