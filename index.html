@@ -90,31 +90,32 @@
     .lang-btn.active { color: #1A1A1A; font-weight: 500; }
     .lang-toggle .sep { color: #CCCCCC; font-size: 12px; }
 
-    /* ===== Intro：入／人 manifesto（品牌引言） ===== */
+    /* ===== Intro：詩意 manifesto（無品牌名、無 tagline） ===== */
     .intro {
-      padding: 140px 0 60px;
+      padding: 160px 0 80px;
       text-align: center;
     }
-    .intro .ru-ren {
-      font-family: "Noto Serif TC", serif;
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 600;
-      letter-spacing: 16px;
-      color: #1A1A1A;
-      margin-bottom: 40px;
-    }
     .intro-text {
-      max-width: 640px;
+      max-width: 720px;
       margin: 0 auto;
     }
-    .intro-text p {
-      font-size: 16px;
-      color: #333333;
-      line-height: 2.1;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
+    .intro-q {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 400;
+      color: #1A1A1A;
+      line-height: 2.0;
+      letter-spacing: 3px;
     }
-    .intro-text p:last-child { margin-bottom: 0; }
+    .intro-a {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(22px, 2.6vw, 30px);
+      font-weight: 600;
+      color: #1A1A1A;
+      line-height: 1.9;
+      letter-spacing: 4px;
+      margin-top: clamp(80px, 12vw, 140px);  /* 與上段拉出明顯留白 */
+    }
 
     /* ===== Hero Viewer：手動切換照片（滿幅） ===== */
     .hero-viewer {
@@ -435,18 +436,19 @@
     </div>
   </nav>
 
-  <!-- ===== Intro：入／人 manifesto ===== -->
+  <!-- ===== Intro：詩意 manifesto ===== -->
   <section class="intro">
     <div class="container">
-      <p class="ru-ren">入 ╱ 人</p>
       <div class="intro-text">
-        <p data-zh="你我都是世上唯一的存在，<br>自我獨特性及對生活的實踐，就是最棒的「風格」。"
-           data-en="Each of us is one of a kind.<br>Your authentic life — lived day by day — is the finest style there is.">
-          你我都是世上唯一的存在，<br>自我獨特性及對生活的實踐，就是最棒的「風格」。
+        <p class="intro-q"
+           data-zh="一個家，該長成什麼樣子？<br>它的模樣，不在入住那天。"
+           data-en="What should a home become?<br>Its shape isn't there the day you move in.">
+          一個家，該長成什麼樣子？<br>它的模樣，不在入住那天。
         </p>
-        <p data-zh="我即空間。<br>家，就是我們對生活最美好的形象。"
-           data-en="I am the space.<br>Home is the most beautiful image we hold of life.">
-          我即空間。<br>家，就是我們對生活最美好的形象。
+        <p class="intro-a"
+           data-zh="住著住著，才會慢慢浮現。"
+           data-en="It takes living in — to slowly show.">
+          住著住著，才會慢慢浮現。
         </p>
       </div>
     </div>
