@@ -107,13 +107,21 @@
       line-height: 2.2;
       letter-spacing: 0.5px;
     }
+    /* 「入住」「move in」刻意強調，呼應品牌「入空間」 */
+    .intro-q .hl {
+      font-weight: 600;
+      color: #1A1A1A;
+      letter-spacing: 2px;
+      border-bottom: 1px solid #1A1A1A;
+      padding-bottom: 2px;
+    }
     .intro-a {
       font-family: "Noto Serif TC", serif;
-      font-size: clamp(17px, 1.8vw, 22px);
-      font-weight: 500;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 600;
       color: #1A1A1A;
       line-height: 1.9;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       margin-top: clamp(56px, 9vw, 96px);
     }
 
@@ -441,9 +449,9 @@
     <div class="container">
       <div class="intro-text">
         <p class="intro-q"
-           data-zh="一個家，該長成什麼樣子？<br>它的模樣，不在入住那天。"
-           data-en="What should a home become?<br>Its shape isn't there the day you move in.">
-          一個家，該長成什麼樣子？<br>它的模樣，不在入住那天。
+           data-zh='一個家，該長成什麼樣子？<br>它的模樣，不在<span class="hl">入住</span>那天。'
+           data-en='What should a home become?<br>Its shape isn&apos;t there the day you <span class="hl">move in</span>.'>
+          一個家，該長成什麼樣子？<br>它的模樣，不在<span class="hl">入住</span>那天。
         </p>
         <p class="intro-a"
            data-zh="住著住著，才會慢慢浮現。"
