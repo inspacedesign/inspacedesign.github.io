@@ -147,25 +147,43 @@
     /* 中央品牌浮層（永遠在）*/
     .hero-brand {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 46%; left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
       color: #FFFFFF;
       pointer-events: none;
-      z-index: 1;
-      mix-blend-mode: difference; /* 在亮底/暗底都看得到 */
+      z-index: 2;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.5);
     }
     .hero-brand h1 {
       font-family: "Noto Serif TC", serif;
       font-size: clamp(36px, 5.5vw, 64px);
       font-weight: 600;
-      letter-spacing: 8px;
-      margin-bottom: 14px;
+      letter-spacing: 12px;
+      margin-bottom: 22px;
+      /* h1 預設靠 letter-spacing 撐開，把右側多出的空白吃掉 */
+      padding-left: 12px;
+    }
+    .hero-brand .divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.7);
+      margin: 0 auto 22px;
     }
     .hero-brand .en {
       font-size: clamp(11px, 1vw, 14px);
-      letter-spacing: 10px;
-      opacity: 0.9;
+      letter-spacing: 6px;
+      opacity: 0.92;
+      font-weight: 400;
+    }
+    /* 整張 hero 的暗角 vignette，確保中央文字在任何底色都看得到 */
+    .hero-carousel::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 35%, rgba(0,0,0,0.3) 100%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     /* 左右箭頭 */
@@ -509,7 +527,8 @@
     <!-- 中央品牌浮層 -->
     <div class="hero-brand">
       <h1>入空間設計</h1>
-      <p class="en">I N . S P A C E　D E S I G N</p>
+      <div class="divider"></div>
+      <p class="en">INTERIOR DESIGN STUDIO</p>
     </div>
 
     <!-- 左右箭頭 -->
