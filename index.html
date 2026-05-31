@@ -23,16 +23,17 @@
       -webkit-font-smoothing: antialiased;
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
-    .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
 
-    /* ===== Navigation — 白底 ===== */
+    /* ===== Navigation — 半透明白底（玻璃感，不擋照片） ===== */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: #FFFFFF;
-      border-bottom: 1px solid #F0F0F0;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       z-index: 100;
-      padding: 18px 0;
+      padding: 16px 0;
     }
     nav .container {
       display: flex;
@@ -47,19 +48,47 @@
       color: #1A1A1A;
       text-decoration: none;
     }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
     .nav-links {
       display: flex;
-      gap: 36px;
+      gap: 30px;
       list-style: none;
     }
     .nav-links a {
-      color: #666666;
+      color: #555555;
       text-decoration: none;
       font-size: 14px;
       letter-spacing: 1px;
       transition: color 0.3s;
     }
     .nav-links a:hover { color: #1A1A1A; }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-left: 20px;
+      border-left: 1px solid #DDDDDD;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: #999999;
+      font-size: 13px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      padding: 4px 2px;
+      font-family: inherit;
+      transition: color 0.25s;
+    }
+    .lang-btn:hover { color: #1A1A1A; }
+    .lang-btn.active { color: #1A1A1A; font-weight: 500; }
+    .lang-toggle .sep { color: #CCCCCC; font-size: 12px; }
 
     /* ===== Intro：入／人 manifesto（品牌引言） ===== */
     .intro {
@@ -87,26 +116,22 @@
     }
     .intro-text p:last-child { margin-bottom: 0; }
 
-    /* ===== Hero Viewer：手動切換的純照片瀏覽 ===== */
+    /* ===== Hero Viewer：手動切換照片（滿幅） ===== */
     .hero-viewer {
       padding: 40px 0 80px;
       background: #FFFFFF;
     }
-    .hero-viewer .container-wide,
-    .hero-viewer .container { padding: 0; max-width: 100%; }
     .viewer-wrap {
       position: relative;
       width: 100%;
-      margin: 0 auto;
-      padding: 0;          /* 滿幅，不留白邊 */
       user-select: none;
     }
     .viewer-stage {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9; /* 寬扁電影感 */
+      aspect-ratio: 16 / 9;
       overflow: hidden;
-      background: #FAFAFA; /* 圖未載入時的純白偏灰底 */
+      background: #FAFAFA;
     }
     .viewer-slide {
       position: absolute;
@@ -147,7 +172,7 @@
       transition: background 0.25s, border-color 0.25s, color 0.25s;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4); /* 白字配淡暗影，任何底色都看得到 */
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     }
     .viewer-prev:hover, .viewer-next:hover {
       background: rgba(26, 26, 26, 0.7);
@@ -158,7 +183,6 @@
     .viewer-prev { left: 24px; }
     .viewer-next { right: 24px; }
 
-    /* 底部 indicator */
     .viewer-dots {
       display: flex;
       justify-content: center;
@@ -180,15 +204,7 @@
     }
     .dot:hover { background: #999999; }
 
-    @media (max-width: 768px) {
-      .viewer-prev, .viewer-next {
-        width: 38px; height: 38px; font-size: 22px;
-      }
-      .viewer-prev { left: 12px; }
-      .viewer-next { right: 12px; }
-    }
-
-    /* ===== Quick Links（關於 / 作品 / 流程 / 收費 ===== */
+    /* ===== Quick Links ===== */
     .quick-links {
       padding: 100px 0;
       background: #FAFAFA;
@@ -215,8 +231,8 @@
     }
     .quick-card h3 {
       font-family: "Noto Serif TC", serif;
-      font-size: 26px; font-weight: 600;
-      letter-spacing: 3px; margin-bottom: 18px;
+      font-size: 22px; font-weight: 600;
+      letter-spacing: 3px; margin-bottom: 16px;
       color: #1A1A1A;
     }
     .quick-card .ql-desc {
@@ -224,15 +240,16 @@
       line-height: 1.9; margin-bottom: 24px;
     }
     .quick-card .ql-arrow {
-      font-size: 13px; letter-spacing: 2px;
-      color: #1A1A1A;
+      font-size: 12px; letter-spacing: 2px;
+      color: #999999;
+      text-transform: uppercase;
     }
 
-    /* ===== Contact — 極簡水平條 ===== */
+    /* ===== Contact — 水平條（LOGO 放大 + 中英品牌名） ===== */
     .contact {
       background: #F0F0F0;
       color: #1A1A1A;
-      padding: 36px 0;
+      padding: 44px 0;
     }
     .contact-bar {
       display: flex;
@@ -244,20 +261,27 @@
     .contact-brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
     .contact-logo {
-      width: 36px; height: 36px;
+      width: 52px; height: 52px;
       color: #1A1A1A;
       display: block;
       flex-shrink: 0;
     }
-    .contact-brand .name {
+    .contact-name .zh {
       font-family: "Noto Serif TC", serif;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 600;
       letter-spacing: 3px;
       color: #1A1A1A;
+      line-height: 1.3;
+    }
+    .contact-name .en {
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: #888888;
+      margin-top: 4px;
     }
     .contact-list {
       display: flex;
@@ -278,20 +302,33 @@
       color: #999999;
       text-transform: uppercase;
     }
-    .contact-item .qr {
-      display: block;
-      width: 72px;
-      height: 72px;
-      border-radius: 4px;
-      background: #FFFFFF;
-      padding: 3px;
+    /* LINE 圓形按鈕 */
+    .line-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: #06C755;
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 2px 6px rgba(6, 199, 85, 0.25);
+    }
+    .line-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(6, 199, 85, 0.4);
+    }
+    .line-btn svg {
+      width: 20px; height: 20px;
+      fill: #FFFFFF;
     }
     @media (max-width: 768px) {
       .contact-bar { flex-direction: column; align-items: flex-start; gap: 20px; }
       .contact-list { gap: 18px; }
     }
 
-    /* ===== Footer — 淡灰底 ===== */
+    /* ===== Footer ===== */
     footer {
       background: #F7F7F7;
       color: #666666;
@@ -304,14 +341,19 @@
 
     /* ===== 響應式 ===== */
     @media (max-width: 768px) {
+      .nav-right { gap: 14px; }
       .nav-links { gap: 16px; }
       .nav-links a { font-size: 12px; }
+      .lang-toggle { padding-left: 12px; }
       .container { padding: 0 20px; }
-      .container-wide { padding: 0 16px; }
       .intro { padding: 110px 0 40px; }
       .hero-viewer { padding: 24px 0 64px; }
       .quick-links { padding: 64px 0; }
-      .contact { padding: 64px 0; }
+      .viewer-prev, .viewer-next {
+        width: 38px; height: 38px; font-size: 22px;
+      }
+      .viewer-prev { left: 12px; }
+      .viewer-next { right: 12px; }
     }
   </style>
 </head>
@@ -321,28 +363,41 @@
   <nav>
     <div class="container">
       <a href="index.html" class="brand">IN.SPACE</a>
-      <ul class="nav-links">
-        <li><a href="about.html">關於</a></li>
-        <li><a href="works.html">作品</a></li>
-        <li><a href="process.html">流程</a></li>
-        <li><a href="pricing.html">收費</a></li>
-        <li><a href="#contact">聯絡</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="about.html" data-zh="關於" data-en="About">關於</a></li>
+          <li><a href="works.html" data-zh="作品" data-en="Works">作品</a></li>
+          <li><a href="process.html" data-zh="流程" data-en="Process">流程</a></li>
+          <li><a href="pricing.html" data-zh="收費" data-en="Pricing">收費</a></li>
+          <li><a href="#contact" data-zh="聯絡" data-en="Contact">聯絡</a></li>
+        </ul>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="zh">中</button>
+          <span class="sep">／</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
     </div>
   </nav>
 
-  <!-- ===== Intro：入／人 manifesto（品牌引言） ===== -->
+  <!-- ===== Intro：入／人 manifesto ===== -->
   <section class="intro">
     <div class="container">
       <p class="ru-ren">入 ╱ 人</p>
       <div class="intro-text">
-        <p>你我都是世上唯一的存在，<br>自我獨特性及對生活的實踐，就是最棒的「風格」。</p>
-        <p>我即空間。<br>家，就是我們對生活最美好的形象。</p>
+        <p data-zh="你我都是世上唯一的存在，<br>自我獨特性及對生活的實踐，就是最棒的「風格」。"
+           data-en="Each of us is one of a kind.<br>Your authentic life — lived day by day — is the finest style there is.">
+          你我都是世上唯一的存在，<br>自我獨特性及對生活的實踐，就是最棒的「風格」。
+        </p>
+        <p data-zh="我即空間。<br>家，就是我們對生活最美好的形象。"
+           data-en="I am the space.<br>Home is the most beautiful image we hold of life.">
+          我即空間。<br>家，就是我們對生活最美好的形象。
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ===== Hero Viewer：手動切換照片 ===== -->
+  <!-- ===== Hero Viewer ===== -->
   <section class="hero-viewer" aria-label="作品照片瀏覽">
     <div class="viewer-wrap">
       <div class="viewer-stage">
@@ -374,30 +429,46 @@
     <div class="container">
       <div class="quick-grid">
         <a href="about.html" class="quick-card">
-          <h3>About</h3>
-          <p class="ql-desc">十年實戰、顧問式合作，將模糊需求轉化為可執行的設計方案。</p>
-          <span class="ql-arrow">關於我們 →</span>
+          <h3 data-zh="關於" data-en="About">關於</h3>
+          <p class="ql-desc"
+             data-zh="十年實戰、顧問式合作，將模糊需求轉化為可執行的設計方案。"
+             data-en="A decade in the field, advisor-style collaboration — turning vague briefs into executable designs.">
+            十年實戰、顧問式合作，將模糊需求轉化為可執行的設計方案。
+          </p>
+          <span class="ql-arrow" data-zh="ABOUT →" data-en="VIEW →">ABOUT →</span>
         </a>
         <a href="works.html" class="quick-card">
-          <h3>Project</h3>
-          <p class="ql-desc">十年累積上百件實作，住宅、商業空間、3D 渲染概念提案。</p>
-          <span class="ql-arrow">作品案例 →</span>
+          <h3 data-zh="作品案例" data-en="Works">作品案例</h3>
+          <p class="ql-desc"
+             data-zh="十年累積上百件實作，住宅、商業空間、3D 渲染概念提案。"
+             data-en="Hundreds of executed projects across residential, commercial, and 3D-render concepts.">
+            十年累積上百件實作，住宅、商業空間、3D 渲染概念提案。
+          </p>
+          <span class="ql-arrow" data-zh="WORKS →" data-en="VIEW →">WORKS →</span>
         </a>
         <a href="process.html" class="quick-card">
-          <h3>Process</h3>
-          <p class="ql-desc">六個階段全程由設計師親自把關，從諮詢到驗收交屋都清楚。</p>
-          <span class="ql-arrow">接案流程 →</span>
+          <h3 data-zh="接案流程" data-en="Process">接案流程</h3>
+          <p class="ql-desc"
+             data-zh="六個階段全程由設計師親自把關，從諮詢到驗收交屋都清楚。"
+             data-en="Six stages, the designer at every step — from first consult to final handover.">
+            六個階段全程由設計師親自把關，從諮詢到驗收交屋都清楚。
+          </p>
+          <span class="ql-arrow" data-zh="PROCESS →" data-en="VIEW →">PROCESS →</span>
         </a>
         <a href="pricing.html" class="quick-card">
-          <h3>Pricing</h3>
-          <p class="ql-desc">三種服務深度，從只要設計到設計＋監工一條龍，自由選擇。</p>
-          <span class="ql-arrow">收費標準 →</span>
+          <h3 data-zh="收費標準" data-en="Pricing">收費標準</h3>
+          <p class="ql-desc"
+             data-zh="三種服務深度，從只要設計到設計＋監工一條龍，自由選擇。"
+             data-en="Three service tiers — from design-only to full design plus on-site supervision.">
+            三種服務深度，從只要設計到設計＋監工一條龍，自由選擇。
+          </p>
+          <span class="ql-arrow" data-zh="PRICING →" data-en="VIEW →">PRICING →</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===== Contact — 水平條 ===== -->
+  <!-- ===== Contact — 水平條（放大 LOGO + 中英品牌名 + LINE 圓鈕） ===== -->
   <section id="contact" class="contact">
     <div class="container">
       <div class="contact-bar">
@@ -408,7 +479,10 @@
               <path d="M 33.5 47 L 33.5 160"/>
             </g>
           </svg>
-          <span class="name">入空間設計</span>
+          <div class="contact-name">
+            <div class="zh">入空間設計</div>
+            <div class="en">IN.SPACE DESIGN</div>
+          </div>
         </div>
         <div class="contact-list">
           <div class="contact-item">
@@ -417,11 +491,15 @@
           </div>
           <div class="contact-item">
             <span class="label">LINE</span>
-            <img src="line-qr.jpg" alt="LINE QR Code" class="qr">
+            <a href="line.html" class="line-btn" aria-label="加入 LINE 好友">
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M16 3C8.27 3 2 7.96 2 14.08c0 5.48 4.96 10.08 11.7 11.04.45.1 1.07.3 1.23.69.14.35.09.9.04 1.27 0 0-.16.99-.2 1.2-.06.35-.28 1.38 1.21.75 1.49-.63 8.04-4.73 10.97-8.1 2.02-2.22 2.99-4.46 2.99-6.85C30 7.96 23.73 3 16 3zM10.06 17.4H7.7c-.34 0-.62-.28-.62-.62v-4.74c0-.34.28-.62.62-.62.34 0 .62.28.62.62v4.12h1.74c.34 0 .62.28.62.62s-.28.62-.62.62zm2.4-.62c0 .34-.28.62-.62.62s-.62-.28-.62-.62v-4.74c0-.34.28-.62.62-.62s.62.28.62.62v4.74zm5.69 0c0 .27-.17.51-.43.59-.06.02-.13.03-.2.03-.2 0-.38-.09-.5-.25l-2.42-3.3v2.93c0 .34-.28.62-.62.62s-.62-.28-.62-.62v-4.74c0-.27.17-.5.43-.59.06-.02.13-.03.2-.03.2 0 .38.09.5.25l2.42 3.3v-2.93c0-.34.28-.62.62-.62s.62.28.62.62v4.74zm3.8-2.99c.34 0 .62.28.62.62s-.28.62-.62.62h-1.74v1.13h1.74c.34 0 .62.28.62.62s-.28.62-.62.62H19.6c-.34 0-.62-.28-.62-.62v-4.74c0-.34.28-.62.62-.62h2.36c.34 0 .62.28.62.62s-.28.62-.62.62H20.2v1.13h1.75z"/>
+              </svg>
+            </a>
           </div>
           <div class="contact-item">
-            <span class="label">服務地區</span>
-            <span>雙北 ｜ 基隆 ｜ 桃園</span>
+            <span class="label" data-zh="服務地區" data-en="Service Area">服務地區</span>
+            <span data-zh="雙北 ｜ 基隆 ｜ 桃園" data-en="Taipei ｜ Keelung ｜ Taoyuan">雙北 ｜ 基隆 ｜ 桃園</span>
           </div>
         </div>
       </div>
@@ -435,7 +513,7 @@
     </div>
   </footer>
 
-  <!-- ===== Viewer JS：手動切換（無自動播放） ===== -->
+  <!-- ===== Viewer JS ===== -->
   <script>
   (function() {
     var slides = document.querySelectorAll('.hero-viewer .viewer-slide');
@@ -461,7 +539,6 @@
       d.addEventListener('click', function() { show(i); });
     });
 
-    // 鍵盤左右（捲動超過 viewer 區域後停用，避免影響內容區）
     document.addEventListener('keydown', function(e) {
       var rect = stage.getBoundingClientRect();
       var inView = rect.bottom > 0 && rect.top < window.innerHeight;
@@ -470,12 +547,9 @@
       if (e.key === 'ArrowRight') { nextSlide(); }
     });
 
-    // 觸控滑動
     var startX = 0, deltaX = 0, swiping = false;
     stage.addEventListener('touchstart', function(e) {
-      startX = e.touches[0].clientX;
-      deltaX = 0;
-      swiping = true;
+      startX = e.touches[0].clientX; deltaX = 0; swiping = true;
     }, { passive: true });
     stage.addEventListener('touchmove', function(e) {
       if (!swiping) return;
@@ -487,6 +561,32 @@
       }
       swiping = false;
     });
+  })();
+  </script>
+
+  <!-- ===== Language Toggle JS（共用） ===== -->
+  <script>
+  (function() {
+    function setLang(lang) {
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hant');
+      document.querySelectorAll('[data-zh][data-en]').forEach(function(el) {
+        var t = el.getAttribute('data-' + lang);
+        if (t !== null) el.innerHTML = t;
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+      });
+      try { localStorage.setItem('inspace-lang', lang); } catch(e) {}
+    }
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.addEventListener('click', function() {
+        setLang(b.getAttribute('data-lang'));
+      });
+    });
+    try {
+      var saved = localStorage.getItem('inspace-lang');
+      if (saved === 'en') setLang('en');
+    } catch(e) {}
   })();
   </script>
 

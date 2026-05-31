@@ -28,8 +28,10 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: #FFFFFF;
-      border-bottom: 1px solid #F0F0F0;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       z-index: 100;
       padding: 18px 0;
     }
@@ -55,6 +57,31 @@
       transition: color 0.3s;
     }
     .nav-links a:hover { color: #1A1A1A; }
+
+    .nav-right {
+      display: flex; align-items: center; gap: 28px;
+    }
+    .lang-toggle {
+      display: flex; align-items: center; gap: 6px;
+      padding-left: 20px;
+      border-left: 1px solid #DDDDDD;
+    }
+    .lang-btn {
+      background: none; border: none;
+      color: #999999;
+      font-size: 13px; letter-spacing: 1px;
+      cursor: pointer; padding: 4px 2px;
+      font-family: inherit;
+      transition: color 0.25s;
+    }
+    .lang-btn:hover { color: #1A1A1A; }
+    .lang-btn.active { color: #1A1A1A; font-weight: 500; }
+    .lang-toggle .sep { color: #CCCCCC; font-size: 12px; }
+    @media (max-width: 768px) {
+      .nav-right { gap: 14px; }
+      .lang-toggle { padding-left: 12px; gap: 4px; }
+    }
+
 
     /* Hero cover image */
     .case-cover {
@@ -246,13 +273,20 @@
   <nav>
     <div class="container-wide">
       <a href="../index.html" class="brand">IN.SPACE</a>
-      <ul class="nav-links">
-        <li><a href="../about.html">關於</a></li>
-        <li><a href="../works.html">作品</a></li>
-        <li><a href="../process.html">流程</a></li>
-        <li><a href="../pricing.html">收費</a></li>
-        <li><a href="../index.html#contact">聯絡</a></li>
+      <div class="nav-right">
+        <ul class="nav-links">
+        <li><a href="../about.html" data-zh="關於" data-en="About">關於</a></li>
+        <li><a href="../works.html" data-zh="作品" data-en="Works">作品</a></li>
+        <li><a href="../process.html" data-zh="流程" data-en="Process">流程</a></li>
+        <li><a href="../pricing.html" data-zh="收費" data-en="Pricing">收費</a></li>
+        <li><a href="../index.html#contact" data-zh="聯絡" data-en="Contact">聯絡</a></li>
       </ul>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="zh">中</button>
+          <span class="sep">／</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -351,6 +385,31 @@
       © 2020 INSPACE DESIGN LTD. All rights reserved.
     </div>
   </footer>
+
+  <script>
+  (function() {
+    function setLang(lang) {
+      document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hant');
+      document.querySelectorAll('[data-zh][data-en]').forEach(function(el) {
+        var t = el.getAttribute('data-' + lang);
+        if (t !== null) el.innerHTML = t;
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+      });
+      try { localStorage.setItem('inspace-lang', lang); } catch(e) {}
+    }
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.addEventListener('click', function() {
+        setLang(b.getAttribute('data-lang'));
+      });
+    });
+    try {
+      var saved = localStorage.getItem('inspace-lang');
+      if (saved === 'en') setLang('en');
+    } catch(e) {}
+  })();
+  </script>
 
 </body>
 </html>
