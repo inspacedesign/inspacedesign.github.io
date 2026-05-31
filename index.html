@@ -250,6 +250,18 @@
       color: #999999;
       text-transform: uppercase;
     }
+    /* 諮詢表單卡：用淡灰藍底突顯（不搶戲，但跟其他 4 張有區別） */
+    .quick-card--accent {
+      background: #EEF2F5;
+      border-color: #DEE5EB;
+    }
+    .quick-card--accent:hover {
+      border-color: #5A6B7A;
+      background: #FFFFFF;
+    }
+    .quick-card--accent .ql-arrow {
+      color: #5A6B7A;
+    }
 
     /* ===== Contact — 水平條（LOGO 放大 + 中英品牌名） ===== */
     .contact {
@@ -349,15 +361,15 @@
       justify-content: center;
       width: 38px; height: 38px;
       border-radius: 50%;
-      background: #1A1A1A;
+      background: #5A6B7A;
       color: #FFFFFF;
       text-decoration: none;
       transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 2px 6px rgba(90, 107, 122, 0.3);
     }
     .form-btn:hover {
       transform: scale(1.08);
-      background: #000000;
+      background: #3E4C58;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     .form-btn svg {
@@ -412,7 +424,6 @@
           <li><a href="works.html" data-zh="作品" data-en="Works">作品</a></li>
           <li><a href="process.html" data-zh="流程" data-en="Process">流程</a></li>
           <li><a href="pricing.html" data-zh="收費" data-en="Pricing">收費</a></li>
-          <li><a href="https://www.surveycake.com/s/o9G0V" target="_blank" rel="noopener" data-zh="諮詢表單" data-en="Inquiry">諮詢表單</a></li>
           <li><a href="#contact" data-zh="聯絡" data-en="Contact">聯絡</a></li>
         </ul>
         <div class="lang-toggle">
@@ -446,12 +457,12 @@
     <div class="viewer-wrap">
       <div class="viewer-stage">
 
-        <div class="viewer-slide active"><a href="works.html"><img src="images/home/01.jpg" alt="作品照片 01"></a></div>
-        <div class="viewer-slide"><a href="works.html"><img src="images/home/02.jpg" alt="作品照片 02"></a></div>
+        <div class="viewer-slide active"><a href="cases/case-03.html"><img src="images/home/01.jpg" alt="作品照片 01 — 家。回歸自我的場域"></a></div>
+        <div class="viewer-slide"><a href="cases/case-02.html"><img src="images/home/02.jpg" alt="作品照片 02 — 家。由你敘述的故事"></a></div>
         <div class="viewer-slide"><a href="cases/case-01.html"><img src="images/home/03.jpg" alt="作品照片 03 — 家。共同構築的日常"></a></div>
-        <div class="viewer-slide"><a href="works.html"><img src="images/home/04.jpg" alt="作品照片 04"></a></div>
-        <div class="viewer-slide"><a href="works.html"><img src="images/home/05.jpg" alt="作品照片 05"></a></div>
-        <div class="viewer-slide"><a href="works.html"><img src="images/home/06.jpg" alt="作品照片 06"></a></div>
+        <div class="viewer-slide"><a href="cases/case-04.html"><img src="images/home/04.jpg" alt="作品照片 04 — 家。不被定義的形狀"></a></div>
+        <div class="viewer-slide"><a href="cases/case-08.html"><img src="images/home/05.jpg" alt="作品照片 05 — 家。生活慣性的延伸"></a></div>
+        <div class="viewer-slide"><a href="cases/case-07.html"><img src="images/home/06.jpg" alt="作品照片 06 — 家。隨你定義的容器"></a></div>
 
         <button class="viewer-prev" aria-label="上一張">‹</button>
         <button class="viewer-next" aria-label="下一張">›</button>
@@ -507,6 +518,15 @@
             三種服務深度，從只要設計到設計＋監工一條龍，自由選擇。
           </p>
           <span class="ql-arrow" data-zh="PRICING →" data-en="VIEW →">PRICING →</span>
+        </a>
+        <a href="https://www.surveycake.com/s/o9G0V" target="_blank" rel="noopener" class="quick-card quick-card--accent">
+          <h3 data-zh="諮詢表單" data-en="Inquiry">諮詢表單</h3>
+          <p class="ql-desc"
+             data-zh="把你的需求、坪數、預算先填一份表單，後續面談更聚焦、不浪費彼此時間。"
+             data-en="Fill in your needs, area, and budget — so our first meeting goes straight to the point.">
+            把你的需求、坪數、預算先填一份表單，後續面談更聚焦、不浪費彼此時間。
+          </p>
+          <span class="ql-arrow" data-zh="OPEN FORM →" data-en="OPEN FORM →">OPEN FORM →</span>
         </a>
       </div>
     </div>
