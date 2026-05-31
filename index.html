@@ -23,14 +23,14 @@
       -webkit-font-smoothing: antialiased;
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
 
-    /* ===== Navigation ===== */
+    /* ===== Navigation — 白底 ===== */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: #000000;
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #1A1A1A;
+      background: #FFFFFF;
+      border-bottom: 1px solid #F0F0F0;
       z-index: 100;
       padding: 18px 0;
     }
@@ -44,7 +44,7 @@
       font-size: 20px;
       font-weight: 600;
       letter-spacing: 2px;
-      color: #F0F0F0;
+      color: #1A1A1A;
       text-decoration: none;
     }
     .nav-links {
@@ -53,222 +53,18 @@
       list-style: none;
     }
     .nav-links a {
-      color: #999999;
+      color: #666666;
       text-decoration: none;
       font-size: 14px;
       letter-spacing: 1px;
       transition: color 0.3s;
     }
-    .nav-links a:hover { color: #FFFFFF; }
+    .nav-links a:hover { color: #1A1A1A; }
 
-    /* ===== Hero Carousel ===== */
-    .hero-carousel {
-      position: relative;
-      height: 88vh;
-      min-height: 520px;
-      margin-top: 64px;
-      overflow: hidden;
-      background: #000000;
-      user-select: none;
-    }
-    .carousel-track {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-    .slide {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 1.2s ease-in-out;
-      pointer-events: none;
-    }
-    .slide.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .slide a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-    }
-    .slide-img {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      /* Ken Burns 緩慢推進，增加電影感 */
-      transform: scale(1.02);
-      transition: transform 8s ease-out;
-    }
-    .slide.active .slide-img {
-      transform: scale(1.08);
-    }
-    /* 底部漸層覆蓋，讓白字看得清 */
-    .slide a::after {
-      content: "";
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 50%;
-      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 100%);
-      pointer-events: none;
-    }
-    .slide-caption {
-      position: absolute;
-      bottom: 64px;
-      left: 56px;
-      color: #FFFFFF;
-      z-index: 2;
-    }
-    .slide-label {
-      font-size: 12px;
-      letter-spacing: 4px;
-      opacity: 0.85;
-      margin-bottom: 10px;
-    }
-    .slide-caption h2 {
-      font-family: "Noto Serif TC", serif;
-      font-size: clamp(22px, 2.8vw, 32px);
-      font-weight: 600;
-      letter-spacing: 2px;
-      margin-bottom: 6px;
-    }
-    .slide-meta {
-      font-size: 13px;
-      letter-spacing: 2px;
-      opacity: 0.75;
-    }
-
-    /* 中央品牌浮層（永遠在）*/
-    .hero-brand {
-      position: absolute;
-      top: 46%; left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #FFFFFF;
-      pointer-events: none;
-      z-index: 2;
-      text-shadow: 0 2px 24px rgba(0,0,0,0.5);
-    }
-    .hero-brand h1 {
-      font-family: "Noto Serif TC", serif;
-      font-size: clamp(36px, 5.5vw, 64px);
-      font-weight: 600;
-      letter-spacing: 12px;
-      margin-bottom: 22px;
-      /* h1 預設靠 letter-spacing 撐開，把右側多出的空白吃掉 */
-      padding-left: 12px;
-    }
-    .hero-brand .divider {
-      width: 40px;
-      height: 1px;
-      background: rgba(255,255,255,0.7);
-      margin: 0 auto 22px;
-    }
-    .hero-brand .en {
-      font-size: clamp(11px, 1vw, 14px);
-      letter-spacing: 6px;
-      opacity: 0.92;
-      font-weight: 400;
-    }
-    /* 整張 hero 的暗角 vignette，確保中央文字在任何底色都看得到 */
-    .hero-carousel::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 35%, rgba(0,0,0,0.3) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* 左右箭頭 */
-    .carousel-prev, .carousel-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 5;
-      width: 52px; height: 52px;
-      background: rgba(0,0,0,0.25);
-      border: 1px solid rgba(255,255,255,0.35);
-      color: #FFFFFF;
-      font-size: 22px;
-      font-family: "Noto Serif TC", serif;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s, background 0.3s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero-carousel:hover .carousel-prev,
-    .hero-carousel:hover .carousel-next { opacity: 1; }
-    .carousel-prev:hover, .carousel-next:hover {
-      background: rgba(0,0,0,0.55);
-    }
-    .carousel-prev { left: 24px; }
-    .carousel-next { right: 24px; }
-
-    /* 底部 indicator */
-    .carousel-dots {
-      position: absolute;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-      z-index: 5;
-    }
-    .dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.4);
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .dot.active {
-      background: #FFFFFF;
-      transform: scale(1.3);
-    }
-    .dot:hover { background: rgba(255,255,255,0.75); }
-
-    @media (max-width: 768px) {
-      .hero-carousel { height: 70vh; min-height: 420px; }
-      .slide-caption { left: 24px; bottom: 56px; }
-      .carousel-prev, .carousel-next { width: 40px; height: 40px; }
-      .carousel-prev { left: 10px; }
-      .carousel-next { right: 10px; }
-      .hero-brand h1 { letter-spacing: 4px; }
-      .hero-brand .en { letter-spacing: 6px; }
-    }
-
-    /* ===== Section 共用 ===== */
-    section { padding: 100px 0; }
-    .section-label {
-      font-size: 12px;
-      letter-spacing: 4px;
-      color: #999999;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-    .section-title {
-      font-family: "Noto Serif TC", serif;
-      font-size: clamp(28px, 3vw, 40px);
-      font-weight: 600;
-      margin-bottom: 56px;
-      letter-spacing: 2px;
-    }
-
-    /* ===== Intro (入／人 manifesto) ===== */
+    /* ===== Intro：入／人 manifesto（品牌引言） ===== */
     .intro {
+      padding: 140px 0 60px;
       text-align: center;
-      padding: 120px 0;
     }
     .intro .ru-ren {
       font-family: "Noto Serif TC", serif;
@@ -276,85 +72,139 @@
       font-weight: 600;
       letter-spacing: 16px;
       color: #1A1A1A;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
-    .intro .intro-text {
+    .intro-text {
       max-width: 640px;
       margin: 0 auto;
     }
-    .intro .intro-text p {
+    .intro-text p {
       font-size: 16px;
       color: #333333;
       line-height: 2.1;
       letter-spacing: 1px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
-    .intro .intro-text p:last-child { margin-bottom: 0; }
+    .intro-text p:last-child { margin-bottom: 0; }
 
-    /* ===== About ===== */
-    .about {
-      background: #F7F7F7;
+    /* ===== Hero Viewer：手動切換的純照片瀏覽 ===== */
+    .hero-viewer {
+      padding: 40px 0 100px;
+      background: #FFFFFF;
     }
-    .about-statement {
-      max-width: 760px;
-      margin-bottom: 72px;
+    .viewer-wrap {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 64px;     /* 兩側留空間給箭頭 */
+      user-select: none;
     }
-    .about-statement p {
-      font-size: 17px;
-      color: #1A1A1A;
-      line-height: 2.05;
-      margin-bottom: 26px;
+    .viewer-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      background: #FAFAFA; /* 圖未載入時的純白偏灰底 */
     }
-    .about-statement .about-quote {
-      font-family: "Noto Serif TC", serif;
-      font-size: clamp(20px, 2vw, 24px);
-      color: #1A1A1A;
-      letter-spacing: 1px;
-      line-height: 1.6;
-      margin: 40px 0;
+    .viewer-slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      pointer-events: none;
     }
-    .about-statement .about-quote span {
+    .viewer-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .viewer-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      font-size: 16px;
-      color: #666666;
-      letter-spacing: 2px;
-      margin-top: 6px;
-    }
-    .about-secondary {
-      padding-top: 48px;
-      border-top: 1px solid #E5E5E5;
-    }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .about-secondary .lead {
-      font-family: "Noto Serif TC", serif;
-      font-size: 18px;
-      color: #1A1A1A;
-    }
-    .about-secondary p {
-      font-size: 14px;
-      margin-bottom: 18px;
-      color: #666666;
-      line-height: 1.9;
-    }
-    @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; gap: 32px; }
     }
 
-    /* ===== Quick Links ===== */
-    .quick-links { background: #FFFFFF; }
+    /* 左右箭頭：永遠顯示（觀看者主動掌控） */
+    .viewer-prev, .viewer-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 48px; height: 48px;
+      background: #FFFFFF;
+      border: 1px solid #E5E5E5;
+      color: #1A1A1A;
+      font-size: 24px;
+      font-family: "Noto Serif TC", serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s, border-color 0.25s, color 0.25s;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+    .viewer-prev:hover, .viewer-next:hover {
+      background: #1A1A1A;
+      border-color: #1A1A1A;
+      color: #FFFFFF;
+    }
+    .viewer-prev { left: 8px; }
+    .viewer-next { right: 8px; }
+
+    /* 底部 indicator */
+    .viewer-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #DDDDDD;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .dot.active {
+      background: #1A1A1A;
+      transform: scale(1.3);
+    }
+    .dot:hover { background: #999999; }
+
+    /* 計數器（第 N / 總數） */
+    .viewer-counter {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: #999999;
+      font-family: "Noto Serif TC", serif;
+    }
+
+    @media (max-width: 768px) {
+      .viewer-wrap { padding: 0 16px; }
+      .viewer-prev, .viewer-next { width: 38px; height: 38px; font-size: 18px; }
+      .viewer-prev { left: -4px; }
+      .viewer-next { right: -4px; }
+    }
+
+    /* ===== Quick Links（關於 / 作品 / 流程 / 收費 ===== */
+    .quick-links {
+      padding: 100px 0;
+      background: #FAFAFA;
+      border-top: 1px solid #F0F0F0;
+    }
     .quick-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
     }
     .quick-card {
       display: block;
-      padding: 48px 36px;
+      padding: 44px 32px;
       border: 1px solid #E5E5E5;
       color: inherit;
       text-decoration: none;
@@ -378,20 +228,32 @@
     }
     .quick-card .ql-desc {
       font-size: 14px; color: #666666;
-      line-height: 1.9; margin-bottom: 28px;
+      line-height: 1.9; margin-bottom: 24px;
     }
     .quick-card .ql-arrow {
       font-size: 13px; letter-spacing: 2px;
       color: #1A1A1A;
     }
 
-    /* ===== Contact ===== */
+    /* ===== Contact — 淡灰底 ===== */
     .contact {
-      background: #1A1A1A;
-      color: #F0F0F0;
+      background: #F0F0F0;
+      color: #1A1A1A;
+      padding: 100px 0;
     }
-    .contact .section-title { color: #FFFFFF; }
-    .contact .section-label { color: #999999; }
+    .contact .section-label {
+      font-size: 12px; letter-spacing: 4px;
+      color: #999999; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .contact .section-title {
+      font-family: "Noto Serif TC", serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 56px;
+      color: #1A1A1A;
+    }
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -406,7 +268,7 @@
     }
     .contact-item .value {
       font-size: 16px;
-      color: #F0F0F0;
+      color: #1A1A1A;
     }
     .contact-item .qr {
       display: block;
@@ -414,16 +276,19 @@
       height: 120px;
       border-radius: 4px;
       margin-top: 4px;
+      background: #FFFFFF;
+      padding: 4px;
     }
 
-    /* ===== Footer ===== */
+    /* ===== Footer — 淡灰底 ===== */
     footer {
-      background: #000000;
-      color: #999999;
-      padding: 32px 0;
+      background: #F7F7F7;
+      color: #666666;
+      padding: 36px 0;
       text-align: center;
       font-size: 13px;
       letter-spacing: 1px;
+      border-top: 1px solid #E5E5E5;
     }
 
     /* ===== 響應式 ===== */
@@ -431,8 +296,11 @@
       .nav-links { gap: 16px; }
       .nav-links a { font-size: 12px; }
       .container { padding: 0 20px; }
-      section { padding: 64px 0; }
-      .intro { padding: 80px 0; }
+      .container-wide { padding: 0 16px; }
+      .intro { padding: 110px 0 40px; }
+      .hero-viewer { padding: 24px 0 64px; }
+      .quick-links { padding: 64px 0; }
+      .contact { padding: 64px 0; }
     }
   </style>
 </head>
@@ -443,7 +311,7 @@
     <div class="container">
       <a href="index.html" class="brand">IN.SPACE</a>
       <ul class="nav-links">
-        <li><a href="#about">關於</a></li>
+        <li><a href="about.html">關於</a></li>
         <li><a href="works.html">作品</a></li>
         <li><a href="process.html">流程</a></li>
         <li><a href="pricing.html">收費</a></li>
@@ -452,101 +320,7 @@
     </div>
   </nav>
 
-  <!-- ===== Hero Carousel ===== -->
-  <section class="hero-carousel" aria-label="作品輪播">
-    <div class="carousel-track">
-
-      <div class="slide active">
-        <a href="cases/case-11.html">
-          <div class="slide-img" style="background-image:url('images/case-11/00.jpg');"></div>
-          <div class="slide-caption">
-            <p class="slide-label">CASE 11</p>
-            <h2>家。理想生活的實驗</h2>
-            <p class="slide-meta">3D 渲染圖 ｜ 15 坪 ｜ 2025</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="slide">
-        <a href="cases/case-04.html">
-          <div class="slide-img" style="background-image:url('images/case-04/00.jpg');"></div>
-          <div class="slide-caption">
-            <p class="slide-label">CASE 04</p>
-            <h2>家。不被定義的形狀</h2>
-            <p class="slide-meta">新成屋 ｜ 16 坪 ｜ 2022</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="slide">
-        <a href="cases/case-05.html">
-          <div class="slide-img" style="background-image:url('images/case-05/00.jpg');"></div>
-          <div class="slide-caption">
-            <p class="slide-label">CASE 05</p>
-            <h2>家吶子。台式居酒屋 Ka-la̍h-á</h2>
-            <p class="slide-meta">商業空間 ｜ 15 坪 ｜ 臺北市</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="slide">
-        <a href="cases/case-07.html">
-          <div class="slide-img" style="background-image:url('images/case-07/00.jpg');"></div>
-          <div class="slide-caption">
-            <p class="slide-label">CASE 07</p>
-            <h2>家。隨你定義的容器</h2>
-            <p class="slide-meta">新成屋 ｜ 32 坪 ｜ 2023</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="slide">
-        <a href="cases/case-10.html">
-          <div class="slide-img" style="background-image:url('images/case-10/00.jpg');"></div>
-          <div class="slide-caption">
-            <p class="slide-label">CASE 10</p>
-            <h2>武森健身格鬥。惡館</h2>
-            <p class="slide-meta">舊屋翻新 ｜ 30 坪 ｜ 2021</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="slide">
-        <a href="cases/case-12.html">
-          <div class="slide-img" style="background-image:url('images/case-12/00.jpg');"></div>
-          <div class="slide-caption">
-            <p class="slide-label">CASE 12</p>
-            <h2>家。純粹生活的體現</h2>
-            <p class="slide-meta">3D 渲染圖 ｜ 26 坪 ｜ 2025</p>
-          </div>
-        </a>
-      </div>
-
-    </div>
-
-    <!-- 中央品牌浮層 -->
-    <div class="hero-brand">
-      <h1>入空間設計</h1>
-      <div class="divider"></div>
-      <p class="en">INTERIOR DESIGN STUDIO</p>
-    </div>
-
-    <!-- 左右箭頭 -->
-    <button class="carousel-prev" aria-label="上一張">‹</button>
-    <button class="carousel-next" aria-label="下一張">›</button>
-
-    <!-- 底部 indicator -->
-    <div class="carousel-dots">
-      <button class="dot active" aria-label="第 1 張"></button>
-      <button class="dot" aria-label="第 2 張"></button>
-      <button class="dot" aria-label="第 3 張"></button>
-      <button class="dot" aria-label="第 4 張"></button>
-      <button class="dot" aria-label="第 5 張"></button>
-      <button class="dot" aria-label="第 6 張"></button>
-    </div>
-  </section>
-
-  <!-- ===== Intro (入／人 manifesto) ===== -->
+  <!-- ===== Intro：入／人 manifesto（品牌引言） ===== -->
   <section class="intro">
     <div class="container">
       <p class="ru-ren">入 ╱ 人</p>
@@ -557,37 +331,44 @@
     </div>
   </section>
 
-  <!-- ===== About ===== -->
-  <section id="about" class="about">
-    <div class="container">
-      <p class="section-label">ABOUT</p>
-      <h2 class="section-title">關於 IN.SPACE</h2>
+  <!-- ===== Hero Viewer：手動切換照片 ===== -->
+  <section class="hero-viewer" aria-label="作品照片瀏覽">
+    <div class="viewer-wrap">
+      <div class="viewer-stage">
 
-      <div class="about-statement">
-        <p>我們深信：最好的風格，就是你對生活的實踐。設計的初衷，不只是為了漂亮的房子，也是為了房子外的生活。</p>
-        <p>作為專業顧問，我不幫你定義標籤。而是協助你梳理慣性、解決問題，將冰冷的建築載體，轉化為具備生命溫度的生活場域。</p>
-        <p class="about-quote">Life is a voyage, and home is where we return.<span>人生是一場航行，家是唯一的港灣。</span></p>
-        <p>無論事業與人生到達什麼高度，回歸自我的空間永遠值得更好的改變。</p>
-        <p class="about-quote">No matter how successful you are, change is always good.</p>
+        <div class="viewer-slide active"><img src="images/home/01.jpg" alt="作品照片 01"></div>
+        <div class="viewer-slide"><img src="images/home/02.jpg" alt="作品照片 02"></div>
+        <div class="viewer-slide"><img src="images/home/03.jpg" alt="作品照片 03"></div>
+        <div class="viewer-slide"><img src="images/home/04.jpg" alt="作品照片 04"></div>
+        <div class="viewer-slide"><img src="images/home/05.jpg" alt="作品照片 05"></div>
+        <div class="viewer-slide"><img src="images/home/06.jpg" alt="作品照片 06"></div>
+
+        <button class="viewer-prev" aria-label="上一張">‹</button>
+        <button class="viewer-next" aria-label="下一張">›</button>
       </div>
 
-      <div class="about-grid about-secondary">
-        <div>
-          <p class="lead">設計，是讓生活回到該有的樣子。</p>
-        </div>
-        <div>
-          <p>我們相信好的空間不靠堆砌風格，而是回應使用者真實的生活。十年來累積上百件住宅與商業空間案例，從平面規劃、3D 渲染、到施工監工，全程由設計師親自把關。</p>
-          <p>主理人具備十年室內設計與工程管理經驗，擅長將業主模糊的需求，轉化為可執行的設計方案，並嚴格控管施工品質與工期。</p>
-          <p>服務範圍：住宅設計、商業空間、辦公空間、店面規劃、舊屋翻新。</p>
-        </div>
+      <div class="viewer-dots">
+        <button class="dot active" aria-label="第 1 張"></button>
+        <button class="dot" aria-label="第 2 張"></button>
+        <button class="dot" aria-label="第 3 張"></button>
+        <button class="dot" aria-label="第 4 張"></button>
+        <button class="dot" aria-label="第 5 張"></button>
+        <button class="dot" aria-label="第 6 張"></button>
       </div>
+      <p class="viewer-counter"><span class="cur">01</span> ／ <span class="total">06</span></p>
     </div>
   </section>
 
-  <!-- ===== Quick Links（作品 / 流程 / 收費） ===== -->
+  <!-- ===== Quick Links ===== -->
   <section class="quick-links">
     <div class="container">
       <div class="quick-grid">
+        <a href="about.html" class="quick-card">
+          <p class="ql-label">ABOUT</p>
+          <h3>關於</h3>
+          <p class="ql-desc">十年實戰、顧問式合作，將模糊需求轉化為可執行的設計方案。</p>
+          <span class="ql-arrow">看關於 →</span>
+        </a>
         <a href="works.html" class="quick-card">
           <p class="ql-label">WORKS</p>
           <h3>作品案例</h3>
@@ -648,75 +429,60 @@
     </div>
   </footer>
 
-  <!-- ===== Carousel JS（自動播放／箭頭／indicator／鍵盤／觸控） ===== -->
+  <!-- ===== Viewer JS：手動切換（無自動播放） ===== -->
   <script>
   (function() {
-    var slides = document.querySelectorAll('.hero-carousel .slide');
-    var dots   = document.querySelectorAll('.hero-carousel .dot');
-    var prev   = document.querySelector('.hero-carousel .carousel-prev');
-    var next   = document.querySelector('.hero-carousel .carousel-next');
-    var track  = document.querySelector('.hero-carousel .carousel-track');
+    var slides = document.querySelectorAll('.hero-viewer .viewer-slide');
+    var dots   = document.querySelectorAll('.hero-viewer .dot');
+    var prev   = document.querySelector('.hero-viewer .viewer-prev');
+    var next   = document.querySelector('.hero-viewer .viewer-next');
+    var stage  = document.querySelector('.hero-viewer .viewer-stage');
+    var cur    = document.querySelector('.hero-viewer .viewer-counter .cur');
     if (!slides.length) return;
 
     var current = 0;
-    var timer = null;
-    var INTERVAL = 5500;
-
     function show(idx) {
       idx = ((idx % slides.length) + slides.length) % slides.length;
       slides.forEach(function(s, i) { s.classList.toggle('active', i === idx); });
       dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+      if (cur) cur.textContent = String(idx + 1).padStart(2, '0');
       current = idx;
     }
     function nextSlide() { show(current + 1); }
     function prevSlide() { show(current - 1); }
-    function startAuto() { stopAuto(); timer = setInterval(nextSlide, INTERVAL); }
-    function stopAuto() { if (timer) { clearInterval(timer); timer = null; } }
 
-    if (next) next.addEventListener('click', function(e) { e.preventDefault(); nextSlide(); startAuto(); });
-    if (prev) prev.addEventListener('click', function(e) { e.preventDefault(); prevSlide(); startAuto(); });
+    if (next) next.addEventListener('click', function(e) { e.preventDefault(); nextSlide(); });
+    if (prev) prev.addEventListener('click', function(e) { e.preventDefault(); prevSlide(); });
     dots.forEach(function(d, i) {
-      d.addEventListener('click', function() { show(i); startAuto(); });
+      d.addEventListener('click', function() { show(i); });
     });
 
-    // 鍵盤左右
+    // 鍵盤左右（捲動超過 viewer 區域後停用，避免影響內容區）
     document.addEventListener('keydown', function(e) {
-      // 只有捲動到頂部時才接管，避免影響其他區
-      if (window.scrollY > window.innerHeight * 0.6) return;
-      if (e.key === 'ArrowLeft')  { prevSlide(); startAuto(); }
-      if (e.key === 'ArrowRight') { nextSlide(); startAuto(); }
+      var rect = stage.getBoundingClientRect();
+      var inView = rect.bottom > 0 && rect.top < window.innerHeight;
+      if (!inView) return;
+      if (e.key === 'ArrowLeft')  { prevSlide(); }
+      if (e.key === 'ArrowRight') { nextSlide(); }
     });
 
     // 觸控滑動
     var startX = 0, deltaX = 0, swiping = false;
-    track.addEventListener('touchstart', function(e) {
+    stage.addEventListener('touchstart', function(e) {
       startX = e.touches[0].clientX;
       deltaX = 0;
       swiping = true;
-      stopAuto();
     }, { passive: true });
-    track.addEventListener('touchmove', function(e) {
+    stage.addEventListener('touchmove', function(e) {
       if (!swiping) return;
       deltaX = e.touches[0].clientX - startX;
     }, { passive: true });
-    track.addEventListener('touchend', function() {
+    stage.addEventListener('touchend', function() {
       if (Math.abs(deltaX) > 50) {
         if (deltaX < 0) nextSlide(); else prevSlide();
       }
       swiping = false;
-      startAuto();
     });
-
-    // 桌機 hover 暫停
-    track.addEventListener('mouseenter', stopAuto);
-    track.addEventListener('mouseleave', startAuto);
-
-    // 分頁切到背景時暫停（省電 + 避免回來一次跳好幾張）
-    document.addEventListener('visibilitychange', function() {
-      if (document.hidden) stopAuto(); else startAuto();
-    });
-
-    startAuto();
   })();
   </script>
 

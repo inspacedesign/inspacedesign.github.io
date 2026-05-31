@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>接案流程｜入空間設計 IN.SPACE</title>
+  <title>關於 IN.SPACE｜入空間設計</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
   <link rel="icon" type="image/png" href="/favicon-32.png?v=2">
-  <meta name="description" content="IN.SPACE 接案六大流程 — 從諮詢、丈量、設計到施工監工與驗收。">
+  <meta name="description" content="關於入空間設計 IN.SPACE — 設計，是讓生活回到該有的樣子。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
@@ -23,6 +23,7 @@
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 
+    /* Navigation — 白底 */
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       background: #FFFFFF;
@@ -62,51 +63,52 @@
       font-size: 15px; color: #666666; max-width: 640px;
     }
 
-    .process-section {
-      padding: 80px 0 120px;
-      background: #F7F7F7;
+    .about-section { padding: 80px 0 120px; }
+    .about-statement { max-width: 760px; margin-bottom: 80px; }
+    .about-statement p {
+      font-size: 17px; color: #1A1A1A;
+      line-height: 2.05; margin-bottom: 26px;
     }
-    .process-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 48px 32px;
-    }
-    .process-step { position: relative; }
-    .process-step .num {
+    .about-statement .about-quote {
       font-family: "Noto Serif TC", serif;
-      font-size: 56px; color: #1A1A1A;
-      font-weight: 600; line-height: 1;
-      margin-bottom: 20px;
+      font-size: clamp(20px, 2vw, 24px);
+      color: #1A1A1A; letter-spacing: 1px;
+      line-height: 1.6; margin: 40px 0;
     }
-    .process-step h4 {
-      font-size: 18px; font-weight: 500;
-      margin-bottom: 10px; letter-spacing: 2px;
+    .about-statement .about-quote span {
+      display: block;
+      font-size: 16px; color: #666666;
+      letter-spacing: 2px; margin-top: 6px;
     }
-    .process-step p {
-      font-size: 14px; color: #666666;
-      line-height: 1.9;
-    }
-
-    .process-note {
-      max-width: 760px; margin: 80px auto 0;
-      padding: 32px; border: 1px solid #E5E5E5;
-      background: #FFFFFF;
-    }
-    .process-note h3 {
-      font-family: "Noto Serif TC", serif;
-      font-size: 18px; font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .process-note p {
-      font-size: 14px; color: #666666;
-      line-height: 1.9;
-    }
-
-    footer {
-      background: #F7F7F7; color: #666666;
-      padding: 36px 0; text-align: center;
-      font-size: 13px; letter-spacing: 1px;
+    .about-secondary {
+      padding-top: 56px;
       border-top: 1px solid #E5E5E5;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px; align-items: start;
+    }
+    .about-secondary .lead {
+      font-family: "Noto Serif TC", serif;
+      font-size: 20px; color: #1A1A1A; line-height: 1.6;
+    }
+    .about-secondary p {
+      font-size: 15px; margin-bottom: 18px;
+      color: #555555; line-height: 1.95;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* Footer — 淡灰底 */
+    footer {
+      background: #F7F7F7;
+      color: #666666;
+      padding: 36px 0;
+      text-align: center;
+      font-size: 13px; letter-spacing: 1px;
+      border-top: 1px solid #F0F0F0;
     }
 
     @media (max-width: 768px) {
@@ -114,7 +116,7 @@
       .nav-links a { font-size: 12px; }
       .container { padding: 0 20px; }
       .page-header { padding: 120px 0 40px; }
-      .process-section { padding: 48px 0 80px; }
+      .about-section { padding: 48px 0 80px; }
     }
   </style>
 </head>
@@ -124,9 +126,9 @@
     <div class="container">
       <a href="index.html" class="brand">IN.SPACE</a>
       <ul class="nav-links">
-        <li><a href="about.html">關於</a></li>
+        <li><a href="about.html" class="active">關於</a></li>
         <li><a href="works.html">作品</a></li>
-        <li><a href="process.html" class="active">流程</a></li>
+        <li><a href="process.html">流程</a></li>
         <li><a href="pricing.html">收費</a></li>
         <li><a href="index.html#contact">聯絡</a></li>
       </ul>
@@ -135,58 +137,34 @@
 
   <header class="page-header">
     <div class="container">
-      <p class="section-label">PROCESS</p>
-      <h1>接案流程</h1>
-      <p>從首次免費諮詢到驗收交屋，六個階段全程由設計師親自把關，<br>讓你清楚知道每一步進行到哪、下一步該期待什麼。</p>
+      <p class="section-label">ABOUT</p>
+      <h1>關於 IN.SPACE</h1>
+      <p>我們深信，最好的風格，就是你對生活的實踐。</p>
     </div>
   </header>
 
-  <section class="process-section">
+  <section class="about-section">
     <div class="container">
-      <div class="process-list">
 
-        <div class="process-step">
-          <div class="num">01</div>
-          <h4>免費諮詢</h4>
-          <p>了解需求、預算、時程，初步評估可行性。</p>
-        </div>
-
-        <div class="process-step">
-          <div class="num">02</div>
-          <h4>現場丈量</h4>
-          <p>實地測量空間，記錄屋況與限制條件。</p>
-        </div>
-
-        <div class="process-step">
-          <div class="num">03</div>
-          <h4>平面提案</h4>
-          <p>提供平面配置方案與粗估報價。</p>
-        </div>
-
-        <div class="process-step">
-          <div class="num">04</div>
-          <h4>深化設計</h4>
-          <p>3D 渲染、施工圖、材料挑選確認。</p>
-        </div>
-
-        <div class="process-step">
-          <div class="num">05</div>
-          <h4>施工監工</h4>
-          <p>工班協調、品質把關、進度追蹤。</p>
-        </div>
-
-        <div class="process-step">
-          <div class="num">06</div>
-          <h4>驗收交屋</h4>
-          <p>逐項驗收、瑕疵修正、保固服務。</p>
-        </div>
-
+      <div class="about-statement">
+        <p>我們深信：最好的風格，就是你對生活的實踐。設計的初衷，不只是為了漂亮的房子，也是為了房子外的生活。</p>
+        <p>作為專業顧問，我不幫你定義標籤。而是協助你梳理慣性、解決問題，將冰冷的建築載體，轉化為具備生命溫度的生活場域。</p>
+        <p class="about-quote">Life is a voyage, and home is where we return.<span>人生是一場航行，家是唯一的港灣。</span></p>
+        <p>無論事業與人生到達什麼高度，回歸自我的空間永遠值得更好的改變。</p>
+        <p class="about-quote">No matter how successful you are, change is always good.</p>
       </div>
 
-      <div class="process-note">
-        <h3>關於時程</h3>
-        <p>每個案件的時程依空間大小、施工複雜度與業主決策節奏而定。一般住宅從簽約到完工約 3–6 個月；商業空間視屋況另議。每個階段都會與業主明確對焦交付物與時程，避免後段才發現方向偏離。</p>
+      <div class="about-grid about-secondary">
+        <div>
+          <p class="lead">設計，是讓生活回到該有的樣子。</p>
+        </div>
+        <div>
+          <p>我們相信好的空間不靠堆砌風格，而是回應使用者真實的生活。十年來累積上百件住宅與商業空間案例，從平面規劃、3D 渲染、到施工監工，全程由設計師親自把關。</p>
+          <p>主理人具備十年室內設計與工程管理經驗，擅長將業主模糊的需求，轉化為可執行的設計方案，並嚴格控管施工品質與工期。</p>
+          <p>服務範圍：住宅設計、商業空間、辦公空間、店面規劃、舊屋翻新。</p>
+        </div>
       </div>
+
     </div>
   </section>
 
