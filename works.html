@@ -47,6 +47,35 @@
       transition: color 0.3s;
     }
     .nav-links a:hover, .nav-links a.active { color: #1A1A1A; }
+    /* 作品 hover 下拉選單 */
+    .nav-links li.has-sub { position: relative; }
+    .nav-links li.has-sub::after {
+      content: ""; position: absolute;
+      top: 100%; left: -10px; right: -10px; height: 16px;
+    }
+    .nav-sub {
+      position: absolute; top: calc(100% + 14px); left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      border: 1px solid rgba(0,0,0,0.06); border-radius: 10px;
+      padding: 6px 0; list-style: none; min-width: 124px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.10); z-index: 120;
+    }
+    .nav-links li.has-sub:hover .nav-sub {
+      opacity: 1; visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-sub li { list-style: none; }
+    .nav-sub a {
+      display: block; padding: 9px 24px; font-size: 13px;
+      letter-spacing: 1.5px; color: #555555; white-space: nowrap;
+      text-align: center; transition: color 0.2s, background 0.2s;
+    }
+    .nav-sub a:hover { color: #1A1A1A; background: rgba(0,0,0,0.04); }
 
     .nav-right {
       display: flex; align-items: center; gap: 28px;
@@ -287,7 +316,13 @@
       <div class="nav-right">
         <ul class="nav-links">
         <li><a href="about.html" data-zh="關於" data-en="About">關於</a></li>
-        <li><a href="works.html" class="active" data-zh="作品" data-en="Works">作品</a></li>
+        <li class="has-sub">
+          <a href="works.html" class="active" data-zh="作品" data-en="Works">作品</a>
+          <ul class="nav-sub">
+            <li><a href="works.html#residential" data-zh="住宅" data-en="Residential">住宅</a></li>
+            <li><a href="works.html#commercial" data-zh="商空" data-en="Commercial">商空</a></li>
+          </ul>
+        </li>
         <li><a href="process.html" data-zh="流程" data-en="Process">流程</a></li>
         <li><a href="pricing.html" data-zh="收費" data-en="Pricing">收費</a></li>
         <li><a href="index.html#contact" data-zh="聯絡" data-en="Contact">聯絡</a></li>
